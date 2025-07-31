@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://4ves6wjgptxg"]
+[gd_scene load_steps=7 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://by7caf4yia4wj" path="res://Stages/BIG Loop.png" id="1_u6r7i"]
-[ext_resource type="Script" uid="uid://bluxohpwjajin" path="res://Scripts/OnTheRailsHorsey.gd" id="2_ryj1c"]
 [ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Active Scenes/horse.tscn" id="3_d2cfl"]
 
 [sub_resource type="Curve2D" id="Curve2D_7tol0"]
@@ -22,9 +21,10 @@ script/source = "extends Area2D
 [node name="Test Course" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_top = -206.0
-offset_right = 960.0
-offset_bottom = 334.0
+offset_left = -786.0
+offset_top = -561.0
+offset_right = 5214.0
+offset_bottom = 2439.0
 texture = ExtResource("1_u6r7i")
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -34,7 +34,6 @@ curve = SubResource("Curve2D_7tol0")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-80, 14)
 rotation = 0.0329551
-script = ExtResource("2_ryj1c")
 
 [node name="Horse" parent="Path2D/PathFollow2D" instance=ExtResource("3_d2cfl")]
 
