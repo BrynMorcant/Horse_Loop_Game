@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
-[ext_resource type="Script" uid="uid://feqv1jmcuxjh" path="res://Active Scenes/horse.gd" id="1_ifxk5"]
+[ext_resource type="Script" uid="uid://feqv1jmcuxjh" path="res://Scripts/HorseAnimation.gd" id="1_ifxk5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayhrb"]
 
