@@ -16,6 +16,34 @@ var loop_stats = {
 	"loop complete": -.000015,# to here - Decay rates for horse speed while traversing the loop
 	"speed threshold": .5 #Speed Threshold to stay on loop
 }
+var loop_difficulty = {
+	1: {
+		"loop climb": .000005,
+		"loop ceiling": .00001,
+		"loop complete": -.000015,
+		"speed threshold": .5
+	},
+	2: {
+		"loop climb": .00001,
+		"loop ceiling": .00002,
+		"loop complete": -.00003,
+		"speed threshold": 1
+	},
+	3: {
+		"loop climb": .00002,
+		"loop ceiling": .00004,
+		"loop complete": -.00005,
+		"speed threshold": 1.5
+	},
+	4: {
+		"loop climb": .000005,
+		"loop ceiling": .00001,
+		"loop complete": -.0001,
+		"speed threshold": 2
+	}
+}
+func _awake():
+	pass
 func _process(delta):
 	if horse_stats["loop position"] == "off loop" && the_state_of_this_fucking_horse != "falling":
 		if Input.is_action_pressed("Boost"):
@@ -61,15 +89,13 @@ func reset_speed(delta):
 			the_state_of_this_fucking_horse = "idle"
 			print(the_state_of_this_fucking_horse)
 func loop_complete():
-	horse_stats["loop counter"]+=.5+(horse_stats["loop counter"]*.5)
+	horse_stats["loop counter"]+=1
 	for stat in loop_stats:
-		if stat == "off loop":
+		if loop_stats["off loop"]:
 			continue
-		elif stat == "speed threshold":
-			horse_stats[stat] += 1
-			continue
-		loop_stats[stat] += .000005
-func horse_upgrade():
+		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
+		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
+func horse_upgrade(): #incomplete
 	
 	#acceleration += .00001
 	#max_speed += .1
