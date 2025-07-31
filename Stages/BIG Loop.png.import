@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by7caf4yia4wj"
-path="res://.godot/imported/BIG Loop.png-4e0b8db7f87020e6406e8b4bcb5216e0.ctex"
+path="res://.godot/imported/BIG Loop.png-a1a19ec1fafb3adfd9475bc07cd98c16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Horse_Loop_Game/Stages/BIG Loop.png"
-dest_files=["res://.godot/imported/BIG Loop.png-4e0b8db7f87020e6406e8b4bcb5216e0.ctex"]
+source_file="res://Stages/BIG Loop.png"
+dest_files=["res://.godot/imported/BIG Loop.png-a1a19ec1fafb3adfd9475bc07cd98c16.ctex"]
 
 [params]
 

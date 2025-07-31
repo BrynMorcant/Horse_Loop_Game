@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chlat5ewspco4"
-path="res://.godot/imported/HorseTest.png-ba5ea39b180056dbc60d8a17be602107.ctex"
+path="res://.godot/imported/HorseTest.png-7af9d98b0ccde4d9801b3157c635048e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Horse_Loop_Game/Horse/HorseTest.png"
-dest_files=["res://.godot/imported/HorseTest.png-ba5ea39b180056dbc60d8a17be602107.ctex"]
+source_file="res://Horse/HorseTest.png"
+dest_files=["res://.godot/imported/HorseTest.png-7af9d98b0ccde4d9801b3157c635048e.ctex"]
 
 [params]
 
