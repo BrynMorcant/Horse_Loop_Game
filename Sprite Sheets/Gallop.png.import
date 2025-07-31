@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdoe5hpo43rw5"
-path="res://.godot/imported/HorseTest1.png-88e83f49678a99a4a2cb6de2fa4caa4e.ctex"
+uid="uid://blknirf0br7hu"
+path="res://.godot/imported/Gallop.png-ea21684c6562b457e2e5efb6b1873044.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/HorseTest1.png"
-dest_files=["res://.godot/imported/HorseTest1.png-88e83f49678a99a4a2cb6de2fa4caa4e.ctex"]
+source_file="res://Sprite Sheets/Gallop.png"
+dest_files=["res://.godot/imported/Gallop.png-ea21684c6562b457e2e5efb6b1873044.ctex"]
 
 [params]
 
