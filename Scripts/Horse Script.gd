@@ -49,17 +49,14 @@ func horse_run(delta):
 func accelerate_horse():
 	if horse_stats["speed"] < horse_stats["max speed"]:
 		horse_stats["speed"] += horse_stats["acceleration"]
-		print(horse_stats["speed"])
 	if horse_stats["speed"] > horse_stats["max speed"]:
 		horse_stats["speed"] = horse_stats ["max speed"]
 func apply_loop_decay(loop_decay):
 	horse_stats["speed"] -= loop_decay
-	print(horse_stats["speed"])
 func reset_speed(delta):
 	if horse_stats["speed"] > horse_stats["base speed"]:
 		horse_run(delta)
 		horse_stats["speed"] -= horse_stats["acceleration"] * 3
-		print(horse_stats["speed"])
 		if horse_stats["speed"] <= horse_stats["base speed"]:
 			the_state_of_this_fucking_horse = "idle"
 			print(the_state_of_this_fucking_horse)
