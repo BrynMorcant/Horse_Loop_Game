@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://j11oaocpqpri"]
+
+[ext_resource type="Texture2D" uid="uid://chlat5ewspco4" path="res://Horse_Loop_Game/Horse/HorseTest.png" id="1_eplvg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayhrb"]
+
+[node name="Horse" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.42109e-14, 1)
+rotation = 1.5708
+scale = Vector2(1.5, 2)
+shape = SubResource("CapsuleShape2D_ayhrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_eplvg")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 25)

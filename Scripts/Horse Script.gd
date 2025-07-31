@@ -1,0 +1,79 @@
+extends PathFollow2D
+
+var the_state_of_this_fucking_horse = "idle"
+var horse_stats = {
+	"base speed": .001,
+	"speed": .001,
+	"acceleration": .00005,
+	"max speed": .1,
+	"loop counter": 1,
+	"loop position": "off loop"
+}
+var loop_stats = {
+	"off loop": .0,#from here
+	"loop climb": .000005,#
+	"loop ceiling": .00001,#
+	"loop complete": -.000015,# to here - Decay rates for horse speed while traversing the loop
+	"speed threshold": .5 #Speed Threshold to stay on loop
+}
+func _process(delta):
+	if horse_stats["loop position"] == "off loop" && the_state_of_this_fucking_horse != "falling":
+		if Input.is_action_pressed("Boost"):
+			horse_run(delta)
+			accelerate_horse()
+		else:
+			reset_speed(delta)
+	elif horse_stats["loop position"] != "off loop":
+		var loop_decay = loop_stats["loop position"]
+		if horse_stats["speed"] < loop_stats["speed threshold"]:
+			the_state_of_this_fucking_horse = "falling"
+			#detatch from parent
+			#apply gravity
+		elif Input.is_action_pressed("Boost"):
+			horse_run(delta)
+			accelerate_horse()
+			apply_loop_decay(loop_decay)
+		else:
+			reset_speed(delta)
+	pass
+func horse_run(delta):
+	if horse_stats["speed"] < 0.01:
+		if the_state_of_this_fucking_horse != "trotting":
+			the_state_of_this_fucking_horse = "trotting"
+			print(the_state_of_this_fucking_horse)
+	else:
+		if the_state_of_this_fucking_horse != "galloping":
+			the_state_of_this_fucking_horse = "galloping"
+			print(the_state_of_this_fucking_horse)
+	progress_ratio += delta*horse_stats["speed"]
+func accelerate_horse():
+	if horse_stats["speed"] < horse_stats["max speed"]:
+		horse_stats["speed"] += horse_stats["acceleration"]
+		print(horse_stats["speed"])
+	if horse_stats["speed"] > horse_stats["max speed"]:
+		horse_stats["speed"] = horse_stats ["max speed"]
+func apply_loop_decay(loop_decay):
+	horse_stats["speed"] -= loop_decay
+	print(horse_stats["speed"])
+func reset_speed(delta):
+	if horse_stats["speed"] > horse_stats["base speed"]:
+		horse_run(delta)
+		horse_stats["speed"] -= horse_stats["acceleration"] * 3
+		print(horse_stats["speed"])
+		if horse_stats["speed"] <= horse_stats["base speed"]:
+			the_state_of_this_fucking_horse = "idle"
+			print(the_state_of_this_fucking_horse)
+func loop_complete():
+	horse_stats["loop counter"]+=.5+(horse_stats["loop counter"]*.5)
+	for stat in loop_stats:
+		if stat == "off loop":
+			continue
+		elif stat == "speed threshold":
+			horse_stats[stat] += 1
+			continue
+		loop_stats[stat] += .000005
+func horse_upgrade():
+	
+	#acceleration += .00001
+	#max_speed += .1
+	pass
