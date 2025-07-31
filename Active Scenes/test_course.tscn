@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ves6wjgptxg"]
+[gd_scene load_steps=8 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://by7caf4yia4wj" path="res://Stages/BIG Loop.png" id="1_u6r7i"]
+[ext_resource type="Script" uid="uid://bluxohpwjajin" path="res://Scripts/OnTheRailsHorsey.gd" id="2_ryj1c"]
 [ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Active Scenes/horse.tscn" id="3_d2cfl"]
 
 [sub_resource type="Curve2D" id="Curve2D_7tol0"]
@@ -28,12 +29,13 @@ offset_bottom = 2439.0
 texture = ExtResource("1_u6r7i")
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(131, 2361)
+position = Vector2(-655, 2004)
 curve = SubResource("Curve2D_7tol0")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-80, 14)
 rotation = 0.0329551
+script = ExtResource("2_ryj1c")
 
 [node name="Horse" parent="Path2D/PathFollow2D" instance=ExtResource("3_d2cfl")]
 
@@ -48,7 +50,7 @@ position_smoothing_speed = 15.0
 position = Vector2(2854, 1958)
 
 [node name="WorldFloor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-215, 171)
+position = Vector2(-1274, -180)
 shape = SubResource("WorldBoundaryShape2D_kbrw5")
 
 [node name="Spawn Trigger" type="Area2D" parent="StaticBody2D"]
