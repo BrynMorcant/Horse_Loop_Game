@@ -7,25 +7,22 @@ var remove_from_rail = false
 @onready var horse: CharacterBody2D = $Test_Horse
 @onready var new_parent: Node2D = get_node("/root/Test Course")
 @onready var camera: Camera2D = $Camera2D
-
-var horse_stats = {
+@export var loop_counter: int = 1
+@export var loop_position: String = "off loop"
+@export var horse_stats: Dictionary = {
 	"base speed": .001,
 	"speed": .001,
-	"acceleration": .00005,
+	"acceleration": .1,
 	"max speed": .1,
-	"loop counter": 1,
-	"loop position": "off loop"
 }
-
-var loop_stats = {
+@export var loop_stats: Dictionary = {
 	"off loop": .0,#from here
 	"loop climb": .000005,#
 	"loop ceiling": .00001,#
 	"loop complete": -.000015,# to here - Decay rates for horse speed while traversing the loop
-	"speed threshold": .5 #Speed Threshold to stay on loop
+	"speed threshold": .05  #Speed Threshold to stay on loop
 }
-
-var loop_difficulty = {
+@export var loop_difficulty: Dictionary = {
 	1: {
 		"loop climb": .000005,
 		"loop ceiling": .00001,
@@ -96,25 +93,24 @@ func _process(delta):
 		if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
 			horse_fall()
 			print("Function Called")
-		if horse_stats["loop position"] == "off loop" && the_state_of_this_fucking_horse != "falling": #Standard run
+		if loop_position == "off loop" && the_state_of_this_fucking_horse != "falling": #Standard run
 			if Input.is_action_pressed("Boost"):
 				horse_run(delta)
 				accelerate_horse()
 			else:
 				reset_speed(delta)
-		elif horse_stats["loop position"] != "off loop": #Running while on the loop
-			var loop_decay = loop_stats[horse_stats["loop position"]] #Assign loop position flag to a variable 
+		elif loop_position != "off loop": #Running while on the loop
+			var loop_decay = loop_stats[loop_position] #Assign loop position flag to a variable 
 			if horse_stats["speed"] < loop_stats["speed threshold"]:
+				print(horse_stats["speed"]," ",loop_stats["speed threshold"])
 				horse_fall()
+				print("Not fast enough bucko!")
 			elif Input.is_action_pressed("Boost"):
 				horse_run(delta)
 				accelerate_horse()
 				apply_loop_decay(loop_decay)
 			else:
 				reset_speed(delta)
-	else:
-		#apply gravity
-		pass
 
 func state_change(state_name):
 	if the_state_of_this_fucking_horse != "falling":
@@ -157,13 +153,13 @@ func reset_speed(delta):
 			state_change("idle")
 			print(the_state_of_this_fucking_horse)
 
-func loop_complete():
-	horse_stats["loop counter"]+=1
-	for stat in loop_stats:
-		if loop_stats["off loop"]:
-			continue
-		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
-		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
+#func loop_complete():
+#	horse_stats["loop counter"]+=1
+#	for stat in loop_stats:
+#		if loop_stats["off loop"]:
+#			continue
+#		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
+#		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
 
 func horse_upgrade(): #incomplete
 	
