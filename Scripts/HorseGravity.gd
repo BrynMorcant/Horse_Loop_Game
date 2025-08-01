@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
 @export var gravity: float = 1200.0
-@onready var my_daddy_is = get_node("Path2D")
+@export var falling = false
+
+@export var radius: float = 50.0
+@export var color: Color = Color(1, 0, 0)
+
+#func _draw():
+#	draw_circle(Vector2.ZERO, radius, color)
 
 func _physics_process(delta: float) -> void:
-	if get_parent() != :
+	if falling:
 		print("I'm trying to fall!")
 		if not is_on_floor():
 			print("Seriously I should be falling rn.")
@@ -12,4 +18,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			print("JK, I will never fall.")
 			velocity.y = 0.0
+			falling = false
+		
 		move_and_slide()

@@ -90,6 +90,7 @@ func horse_fall():
 	new_horse.queue_free()
 	horse.add_child(camera)
 	state_change("falling")
+	horse.falling = true
 func _process(delta):
 	if the_state_of_this_fucking_horse != "falling": #When Falling the horse should be free of player influence
 		if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
