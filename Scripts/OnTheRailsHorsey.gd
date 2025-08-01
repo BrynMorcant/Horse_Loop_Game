@@ -1,6 +1,7 @@
 extends PathFollow2D
 
-var the_state_of_this_fucking_horse = "idle"
+var the_state_of_this_fucking_horse
+var la_horse_danse
 
 var horse_stats = {
 	"base speed": .001,
@@ -46,8 +47,9 @@ var loop_difficulty = {
 	}
 }
 
-func _awake():
-	pass
+func _ready():
+	la_horse_danse = $Horse/AnimatedSprite2D
+	state_change("idle")
 
 func _process(delta):
 	if horse_stats["loop position"] == "off loop" && the_state_of_this_fucking_horse != "falling":
@@ -73,15 +75,14 @@ func _process(delta):
 
 func state_change(state_name):
 	the_state_of_this_fucking_horse = state_name
-	if the_state_of_this_fucking_horse == "idle":
-		pass
-	elif the_state_of_this_fucking_horse == "trotting":
-		pass
-	elif the_state_of_this_fucking_horse == "galloping":
-		
-		pass
-	elif the_state_of_this_fucking_horse == "falling":
-		pass
+	if state_name == "idle":
+		la_horse_danse.play(state_name)
+	elif state_name == "trotting":
+		la_horse_danse.play(state_name)
+	elif state_name == "galloping":
+		la_horse_danse.play(state_name)
+	elif state_name == "falling":
+		la_horse_danse.play(state_name)
 
 func horse_run(delta):
 	if horse_stats["speed"] < 0.01:
