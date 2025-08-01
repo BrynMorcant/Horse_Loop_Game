@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://by7caf4yia4wj" path="res://Stages/BIG Loop.png" id="1_u6r7i"]
-[ext_resource type="Script" uid="uid://bluxohpwjajin" path="res://Scripts/OnTheRailsHorsey.gd" id="2_ryj1c"]
+[ext_resource type="Script" path="res://Scripts/OnTheRailsHorsey.gd" id="2_ryj1c"]
 [ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Active Scenes/horse.tscn" id="3_d2cfl"]
 
 [sub_resource type="Curve2D" id="Curve2D_7tol0"]
