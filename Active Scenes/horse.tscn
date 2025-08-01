@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
-[ext_resource type="Script" uid="uid://feqv1jmcuxjh" path="res://Scripts/HorseAnimation.gd" id="1_ifxk5"]
+[ext_resource type="Script" path="res://Scripts/HorseAnimation.gd" id="1_ifxk5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayhrb"]
 
@@ -28,19 +28,19 @@ region = Rect2(256, 0, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_wrjrx"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_5m35r")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ifxk5")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_7ktcf")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_uaa7v")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_uk6gb")
 }],
 "loop": true,
