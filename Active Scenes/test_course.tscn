@@ -40,7 +40,7 @@ script = ExtResource("2_ryj1c")
 [node name="Horse" parent="Path2D/PathFollow2D" instance=ExtResource("3_d2cfl")]
 
 [node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D/Horse"]
-position = Vector2(-0.374738, -9.99298)
+position = Vector2(-0.374756, -9.99292)
 rotation = -0.0374824
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
@@ -62,5 +62,4 @@ script = SubResource("GDScript_kbrw5")
 shape = SubResource("CapsuleShape2D_y2rj5")
 disabled = true
 
-[connection signal="property_list_changed" from="Path2D/PathFollow2D" to="Path2D/PathFollow2D/Horse" method="_on_path_follow_2d_property_list_changed"]
 [connection signal="body_entered" from="StaticBody2D/Spawn Trigger" to="StaticBody2D/Spawn Trigger" method="_on_body_entered"]

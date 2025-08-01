@@ -44,7 +44,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_uk6gb")
 }],
 "loop": true,
-"name": &"Gallop",
+"name": &"galloping",
 "speed": 5.0
 }]
 
@@ -61,4 +61,5 @@ shape = SubResource("CapsuleShape2D_ayhrb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_wrjrx")
-animation = &"Gallop"
+animation = &"galloping"
+frame_progress = 0.159716
