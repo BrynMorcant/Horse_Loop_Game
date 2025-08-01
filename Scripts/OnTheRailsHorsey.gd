@@ -2,6 +2,11 @@ extends PathFollow2D
 
 var the_state_of_this_fucking_horse
 var la_horse_danse
+var gravity = 1.8
+
+var remove_from_rail = false
+@onready var horse: CharacterBody2D = $Test_Horse
+@onready var new_parent: Node2D = get_node("/root/Test Course")
 
 var horse_stats = {
 	"base speed": .001,
@@ -48,10 +53,49 @@ var loop_difficulty = {
 }
 
 func _ready():
-	la_horse_danse = $Horse/AnimatedSprite2D
+	la_horse_danse = $Test_Horse/AnimatedSprite2D
 	state_change("idle")
+	if new_parent == null:
+		print("Error: Could not find Test Course")
 
+func _input(event: InputEvent) -> void:
+	pass
+	
+	
+	
+	
+func horse_fall():
+	#Solution 1 - Reparent and assign old world transforms
+	#if Input.is_action_just_pressed("Down") and !remove_from_rail:
+	#	var global_position = horse.global_position #preserve world position
+	#	var global_rotation = horse.global_rotation #and rotation
+	#	remove_child(horse)
+	#	new_parent.add_child(horse)
+	#	horse.global_position = global_position
+	#	horse.global_rotation = global_rotation
+	#	remove_from_rail=true
+	#	print(horse.get_parent())
+	
+	#Solution 2 - Replace with a clone
+	#var global_transform = horse.global_transform
+	#var new_horse = horse.duplicate()
+	#new_parent.add_child(new_horse)
+	#new_horse.global_transform = global_transform
+	#horse.queue_free()
+	
+	#Solution 3 - Hybrid, use clone to hide jitter (Prevents animation hijinks post-swap).
+	var global_transform = horse.global_transform
+	var new_horse = horse.duplicate()
+	new_parent.add_child(new_horse)
+	new_horse.global_transform = global_transform
+	remove_child(horse)
+	new_parent.add_child(horse)
+	horse.global_transform = global_transform
+	new_horse.queue_free()
 func _process(delta):
+	if Input.is_action_just_pressed("Down"):
+		horse_fall()
+		print("Function Called")
 	if horse_stats["loop position"] == "off loop" && the_state_of_this_fucking_horse != "falling":
 		if Input.is_action_pressed("Boost"):
 			horse_run(delta)
@@ -74,15 +118,17 @@ func _process(delta):
 	pass
 
 func state_change(state_name):
-	the_state_of_this_fucking_horse = state_name
-	if state_name == "idle":
-		la_horse_danse.play(state_name)
-	elif state_name == "trotting":
-		la_horse_danse.play(state_name)
-	elif state_name == "galloping":
-		la_horse_danse.play(state_name)
-	elif state_name == "falling":
-		la_horse_danse.play(state_name)
+	if the_state_of_this_fucking_horse != "falling":
+		the_state_of_this_fucking_horse = state_name
+	
+		if state_name == "idle":
+			la_horse_danse.play(state_name)
+		elif state_name == "trotting":
+			la_horse_danse.play(state_name)
+		elif state_name == "galloping":
+			la_horse_danse.play(state_name)
+		elif state_name == "falling":
+			la_horse_danse.play(state_name)
 
 func horse_run(delta):
 	if horse_stats["speed"] < 0.01:
