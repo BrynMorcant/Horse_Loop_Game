@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=35 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
@@ -6,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c1ses12kfds5d" path="res://Sprite Sheets/Idle Stand.png" id="3_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://dm7aifnursyv1" path="res://Sprite Sheets/Horse Run.png" id="4_uk6gb"]
 =======
+=======
+>>>>>>> Stashed changes
 [gd_scene load_steps=23 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
@@ -18,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://d1ede58gh27bp" path="res://Sounds/Horse/Hoof/GravelHoof2.ogg" id="8_kvkx3"]
 [ext_resource type="AudioStream" uid="uid://cdsvr3rplpkyc" path="res://Sounds/Horse/Hoof/GravelHoof3.ogg" id="9_013mf"]
 [ext_resource type="AudioStream" uid="uid://dqjv27rr6ow0m" path="res://Sounds/Horse/Hoof/GravelHoof4.ogg" id="10_4nvco"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayhrb"]
@@ -373,4 +379,7 @@ stream = SubResource("AudioStreamRandomizer_10uvr")
 libraries = {
 &"": SubResource("AnimationLibrary_wrjrx")
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
