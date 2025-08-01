@@ -1,7 +1,7 @@
 extends PathFollow2D
 
-var the_state_of_this_fucking_horse
-var la_horse_danse
+var the_state_of_this_fucking_horse #stores the current stats of the horse.
+var la_horse_danse #variable for the animation player.
 
 var horse_stats = {
 	"base speed": .001,
@@ -64,6 +64,7 @@ func _process(delta):
 			state_change("falling")
 			
 			#detatch from parent
+			
 			#apply gravity
 		elif Input.is_action_pressed("Boost"):
 			horse_run(delta)
@@ -71,6 +72,10 @@ func _process(delta):
 			apply_loop_decay(loop_decay)
 		else:
 			reset_speed(delta)
+	pass
+
+func black_horse_magic():
+	
 	pass
 
 func state_change(state_name):
