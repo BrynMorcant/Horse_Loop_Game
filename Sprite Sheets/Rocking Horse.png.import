@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fsrljcva8n5b"
-path="res://.godot/imported/Horse Run.png-70778e3565d9a3c2e44b72d71724fef5.ctex"
+uid="uid://dm7aifnursyv1"
+path="res://.godot/imported/Rocking Horse.png-6e62151e830c2c5a95c11e06bbb08579.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/Horse Run.png"
-dest_files=["res://.godot/imported/Horse Run.png-70778e3565d9a3c2e44b72d71724fef5.ctex"]
+source_file="res://Sprite Sheets/Rocking Horse.png"
+dest_files=["res://.godot/imported/Rocking Horse.png-6e62151e830c2c5a95c11e06bbb08579.ctex"]
 
 [params]
 
