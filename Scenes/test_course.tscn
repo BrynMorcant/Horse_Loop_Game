@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4ves6wjgptxg"]
+[gd_scene load_steps=12 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://bmmsj3hfaho3o" path="res://Stages/BIGGER Loop.png" id="1_3iic1"]
 [ext_resource type="PackedScene" uid="uid://bmy88qlycu816" path="res://Scenes/loop_run_interface.tscn" id="2_0pg6a"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Scenes/horse.tscn" id="4_gvjws"]
 [ext_resource type="Texture2D" uid="uid://naboyrodc56e" path="res://Stages/BIGGER Loop foreground.png" id="6_qnpiy"]
 [ext_resource type="PackedScene" uid="uid://d2mby6wejupq3" path="res://Scenes/loop_manager.tscn" id="7_1yneb"]
+[ext_resource type="Texture2D" uid="uid://0x1iwark4dcb" path="res://Stages/BIGGER Loop Floorground.png" id="7_crv7u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvjws"]
 
@@ -108,11 +109,18 @@ offset_right = 6714.0
 offset_bottom = 2439.0
 texture = ExtResource("6_qnpiy")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -786.0
+offset_top = -589.0
+offset_right = 6714.0
+offset_bottom = 2411.0
+texture = ExtResource("7_crv7u")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2854, 1958)
 
 [node name="WorldFloor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1274, -143)
+position = Vector2(-1271, -166)
 shape = SubResource("WorldBoundaryShape2D_kbrw5")
 
 [editable path="loop_manager"]

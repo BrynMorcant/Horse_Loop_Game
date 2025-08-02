@@ -1,31 +1,34 @@
 extends Control
 
+@export var main_menu: Control
+@export var credits: Control
 
+func _ready() -> void:
+	main_menu = get_node("/root/horse_looper_1/Main Menu")
+	credits = get_node("/root/horse_looper_1/Credits")
 
 func _on_link_button_pressed() -> void:
 	OS.shell_open("https://soundcloud.com/messedup-murphy")
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res:/Scenes/UI/main_menu.tscn")
+	credits.visible = false
+	main_menu.visible = true
 	pass # Replace with function body.
 
 
 func _on_game_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/test_course.tscn")
+	
 	pass # Replace with function body.
 
 
 func _on_credits_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/UI/credits.tscn")
+	main_menu.visible = false
+	credits.visible = true
 	pass # Replace with function body.
 
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-	pass # Replace with function body.
-
-
-func _on_horse_looper_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/horse_looper_1.tscn")
 	pass # Replace with function body.

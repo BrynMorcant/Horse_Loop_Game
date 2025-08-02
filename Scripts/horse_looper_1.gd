@@ -1,5 +1,8 @@
 extends PathFollow2D
 
+@onready var ui
+@onready var ui2
+
 var the_state_of_this_fucking_horse
 var la_horse_danse
 @export var horse_ui: Control 
@@ -9,15 +12,25 @@ var remove_from_rail = false
 @export var loop_position: String = "off loop"
 @onready var fallen = false
 @onready var buried = false
+var timer
 @export var horse_stats: Dictionary = {
 	"base speed": .001,
 	"speed": .001,
 	"acceleration": .005,
 	"max speed": .1,
 }
+
 func _ready():
 	la_horse_danse = $Test_Horse/AnimatedSprite2D
 	state_change("galloping")
+	ui = get_node("/root/horse_looper_1/Main Menu")
+	ui2 = get_node("/root/horse_looper_1/Credits")
+	if ui == null:
+		print("fucked it.")
+	else:
+		ui.visible = false
+		ui2.visible = false
+	timer = get_node("/root/horse_looper_1/MyTimer")
 	
 
 func _process(delta):
@@ -47,6 +60,8 @@ func horse_run(delta):
 		if !buried:
 			la_horse_danse.play("idle")
 			buried = true
+			
+			timer.start()
 	elif progress_ratio != 1.0:
 		progress_ratio += delta*horse_stats["speed"]
 	#print("Horsepower = ", horse_ui.horsepower)
@@ -55,3 +70,8 @@ func accelerate_horse():
 		horse_stats["speed"] += horse_stats["acceleration"]
 	if horse_stats["speed"] > horse_stats["max speed"]:
 		horse_stats["speed"] = horse_stats ["max speed"]
+
+
+func _on_timer_timeout() -> void:
+	ui.visible=true
+	pass # Replace with function body.
