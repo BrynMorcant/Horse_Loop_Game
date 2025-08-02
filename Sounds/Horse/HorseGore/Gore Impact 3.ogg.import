@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dj3hw4i2vlbha"
+path="res://.godot/imported/Gore Impact 3.ogg-963414847521fdb9334265f39a9fe402.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Horse/HorseGore/Gore Impact 3.ogg"
+dest_files=["res://.godot/imported/Gore Impact 3.ogg-963414847521fdb9334265f39a9fe402.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
