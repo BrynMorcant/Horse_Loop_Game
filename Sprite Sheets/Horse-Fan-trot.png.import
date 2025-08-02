@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jhoccvlb1y0y"
-path="res://.godot/imported/RollerSkate.png-8b573408468ab09dd645251eedca1e42.ctex"
+uid="uid://dld4xapr13cwm"
+path="res://.godot/imported/Horse-Fan-trot.png-7cf1315e67cf498e55cbc6850a85f789.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/RollerSkate.png"
-dest_files=["res://.godot/imported/RollerSkate.png-8b573408468ab09dd645251eedca1e42.ctex"]
+source_file="res://Sprite Sheets/Horse-Fan-trot.png"
+dest_files=["res://.godot/imported/Horse-Fan-trot.png-7cf1315e67cf498e55cbc6850a85f789.ctex"]
 
 [params]
 
