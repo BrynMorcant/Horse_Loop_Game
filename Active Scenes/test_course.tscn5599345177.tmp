@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://by7caf4yia4wj" path="res://Stages/BIG Loop.png" id="1_u6r7i"]
 [ext_resource type="PackedScene" uid="uid://bmy88qlycu816" path="res://Active Scenes/loop_run_interface.tscn" id="2_0pg6a"]
 [ext_resource type="Script" uid="uid://bluxohpwjajin" path="res://Scripts/OnTheRailsHorsey.gd" id="2_ryj1c"]
-[ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Active Scenes/horse.tscn" id="4_gvjws"]
+[ext_resource type="PackedScene" uid="uid://cekn5mlxq5csk" path="res://Active Scenes/horse.tscn" id="4_gvjws"]
 [ext_resource type="PackedScene" uid="uid://d2mby6wejupq3" path="res://Active Scenes/loop_manager.tscn" id="7_1yneb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvjws"]
@@ -33,6 +33,8 @@ offset_top = -561.0
 offset_right = 5214.0
 offset_bottom = 2439.0
 texture = ExtResource("1_u6r7i")
+
+[node name="Loop_Run_Interface" parent="." instance=ExtResource("2_0pg6a")]
 
 [node name="loop_manager" parent="." instance=ExtResource("7_1yneb")]
 position = Vector2(273, 2006)
@@ -97,11 +99,11 @@ shape = SubResource("CapsuleShape2D_gvjws")
 position = Vector2(-655, 2004)
 curve = SubResource("Curve2D_7tol0")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" node_paths=PackedStringArray("horse_ui")]
-position = Vector2(172, 14)
-rotation = -0.0389413
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(5540, 14)
+rotation = -0.0880074
+progress = 16209.5
 script = ExtResource("2_ryj1c")
-horse_ui = NodePath("Test_Horse/Camera2D/Loop_Run_Interface")
 
 [node name="Test_Horse" parent="Path2D/PathFollow2D" instance=ExtResource("4_gvjws")]
 
@@ -110,12 +112,6 @@ position = Vector2(-0.374817, -9.9928)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
-
-[node name="Loop_Run_Interface" parent="Path2D/PathFollow2D/Test_Horse/Camera2D" instance=ExtResource("2_0pg6a")]
-offset_left = -69.7408
-offset_top = 37.2837
-offset_right = -69.7408
-offset_bottom = 37.2837
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2854, 1958)
