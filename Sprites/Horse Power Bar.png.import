@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkhy5abnhlboc"
-path="res://.godot/imported/greg.png-13b509d188d41a8c071d1d9a4d393960.ctex"
+uid="uid://wx3vh746uqpi"
+path="res://.godot/imported/Horse Power Bar.png-7fcac409f63c858f76e6424c671f7f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/greg.png"
-dest_files=["res://.godot/imported/greg.png-13b509d188d41a8c071d1d9a4d393960.ctex"]
+source_file="res://Sprites/Horse Power Bar.png"
+dest_files=["res://.godot/imported/Horse Power Bar.png-7fcac409f63c858f76e6424c671f7f1a.ctex"]
 
 [params]
 

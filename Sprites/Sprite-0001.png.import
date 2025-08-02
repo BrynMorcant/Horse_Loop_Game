@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpmn3p5xd1c8a"
-path="res://.godot/imported/frontleg1.png-86bc9887d2f0eceb11646aea65c4de3a.ctex"
+uid="uid://b0tqngsgmaiss"
+path="res://.godot/imported/Sprite-0001.png-70bd1a6433673a0f1a07449d081529fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/Horse Limbs/frontleg1.png"
-dest_files=["res://.godot/imported/frontleg1.png-86bc9887d2f0eceb11646aea65c4de3a.ctex"]
+source_file="res://Sprites/Sprite-0001.png"
+dest_files=["res://.godot/imported/Sprite-0001.png-70bd1a6433673a0f1a07449d081529fb.ctex"]
 
 [params]
 

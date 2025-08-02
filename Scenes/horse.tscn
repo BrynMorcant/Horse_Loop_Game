@@ -1,7 +1,7 @@
 [gd_scene load_steps=103 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
-[ext_resource type="Script" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
+[ext_resource type="Script" uid="uid://dsps16ywv0agy" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://c1ses12kfds5d" path="res://Sprite Sheets/Idle Stand.png" id="3_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://do3pyn8mndanj" path="res://Sprite Sheets/Horse-Fan-Run.png" id="3_w7en7"]
 [ext_resource type="Texture2D" uid="uid://dm7aifnursyv1" path="res://Sprite Sheets/Horse Run.png" id="4_uk6gb"]
@@ -492,6 +492,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_khh14"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"falling"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0]
+}
+
 [sub_resource type="Animation" id="Animation_y2ll5"]
 resource_name = "Gallop"
 length = 0.5
@@ -545,10 +573,14 @@ tracks/3/keys = {
 "values": [true, true]
 }
 
-[sub_resource type="Animation" id="Animation_xu0tp"]
-resource_name = "Trot"
-length = 0.45
+[sub_resource type="Animation" id="Animation_irop5"]
+resource_name = "FanGallop"
+
+[sub_resource type="Animation" id="Animation_huv0o"]
+resource_name = "Gallop_Fan+Roller"
+length = 0.4
 loop_mode = 1
+step = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -559,7 +591,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"trotting"]
+"values": [&"roller_skates_fan_galloping"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -568,35 +600,16 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 3]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HoofStone:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HoofStone:pitch_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
+
+[sub_resource type="Animation" id="Animation_a1cjg"]
+resource_name = "Rocket_Gallop"
+
+[sub_resource type="Animation" id="Animation_ojqcr"]
 
 [sub_resource type="Animation" id="Animation_5iwny"]
 resource_name = "Idle"
@@ -630,89 +643,14 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_ivq37"]
 resource_name = "FanIdle"
 
-[sub_resource type="Animation" id="Animation_hy73u"]
-resource_name = "FanTrot"
-
-[sub_resource type="Animation" id="Animation_irop5"]
-resource_name = "FanGallop"
+[sub_resource type="Animation" id="Animation_eo1wv"]
+resource_name = "Idle_Fan+Roller"
 
 [sub_resource type="Animation" id="Animation_r3wp1"]
 resource_name = "RocketIdle"
 
-[sub_resource type="Animation" id="Animation_eo1wv"]
-resource_name = "Idle_Fan+Roller"
-
-[sub_resource type="Animation" id="Animation_b86sk"]
-resource_name = "Trot_Fan+Roller"
-
-[sub_resource type="Animation" id="Animation_qgjxy"]
-resource_name = "Trot_Roller"
-
-[sub_resource type="Animation" id="Animation_a1cjg"]
-resource_name = "Rocket_Gallop"
-
-[sub_resource type="Animation" id="Animation_huv0o"]
-resource_name = "Gallop_Fan+Roller"
-length = 0.4
-loop_mode = 1
-step = 60.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"roller_skates_fan_galloping"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_vl3ax"]
 resource_name = "Idle_RollerBlade"
-
-[sub_resource type="Animation" id="Animation_ojqcr"]
-
-[sub_resource type="Animation" id="Animation_khh14"]
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"falling"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 0]
-}
 
 [sub_resource type="Animation" id="Animation_ruxqp"]
 length = 0.001
@@ -777,6 +715,68 @@ tracks/4/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_xu0tp"]
+resource_name = "Trot"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"trotting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HoofStone:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HoofStone:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_hy73u"]
+resource_name = "FanTrot"
+
+[sub_resource type="Animation" id="Animation_b86sk"]
+resource_name = "Trot_Fan+Roller"
+
+[sub_resource type="Animation" id="Animation_qgjxy"]
+resource_name = "Trot_Roller"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbits"]
 _data = {
 &"Fall": SubResource("Animation_khh14"),
@@ -828,6 +828,7 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_uaa7v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_wrjrx")
 animation = &"galloping_fan"

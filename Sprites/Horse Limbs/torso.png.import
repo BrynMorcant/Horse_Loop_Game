@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0tqngsgmaiss"
-path="res://.godot/imported/Sprite-0001.png-89188f4be912bad63d01221dc83ba63f.ctex"
+uid="uid://cuayrliggl5ky"
+path="res://.godot/imported/torso.png-c2796ad3b1efa31be128a2fe7a5c3743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/Sprite-0001.png"
-dest_files=["res://.godot/imported/Sprite-0001.png-89188f4be912bad63d01221dc83ba63f.ctex"]
+source_file="res://Sprites/Horse Limbs/torso.png"
+dest_files=["res://.godot/imported/torso.png-c2796ad3b1efa31be128a2fe7a5c3743.ctex"]
 
 [params]
 

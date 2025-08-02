@@ -1,7 +1,7 @@
 extends PathFollow2D
-
-var the_state_of_this_fucking_horse
-var la_horse_danse
+@export var horsey_upgrades: Node2D
+var the_state_of_this_fucking_horse = "idle"
+@export var la_horse_danse: AnimatedSprite2D
 @export var horse_ui: Control 
 var remove_from_rail = false
 @onready var horse: CharacterBody2D = $Test_Horse
@@ -12,7 +12,7 @@ var remove_from_rail = false
 @export var horse_stats: Dictionary = {
 	"base speed": .001,
 	"speed": .001,
-	"acceleration": .0005,
+	"acceleration": .0001,
 	"max speed": .15,
 }
 @export var loop_stats: Dictionary = {
@@ -27,27 +27,28 @@ var remove_from_rail = false
 		"loop climb": .00001,
 		"loop ceiling": .00002,
 		"loop complete": -.00003,
-		"speed threshold": .05
+		"speed threshold": .035
 	},
 	3: {
 		"loop climb": .00002,
 		"loop ceiling": .00004,
 		"loop complete": -.00005,
-		"speed threshold": .08
+		"speed threshold": .06
 	},
 	4: {
 		"loop climb": .000005,
 		"loop ceiling": .00001,
 		"loop complete": -.0001,
-		"speed threshold": .125
+		"speed threshold": .1
 	}
 }
-
 func _ready():
 	la_horse_danse = $Test_Horse/AnimatedSprite2D
-	state_change("idle")
+	la_horse_danse.play("idle")
 	the_state_of_this_fucking_horse = "idle"
-
+	horsey_upgrades = get_node("%horse_upgrades")
+	if horsey_upgrades == null:
+		print("You dumb dingus Dee")
 func _process(delta):
 	if the_state_of_this_fucking_horse != "falling": #When Falling the horse should be free of player influence
 		#if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
@@ -76,15 +77,16 @@ func _process(delta):
 func state_change(state_name):
 	if the_state_of_this_fucking_horse != "falling":
 		the_state_of_this_fucking_horse = state_name
-	
-		if state_name == "idle":
-			la_horse_danse.play(state_name)
-		elif state_name == "trotting":
-			la_horse_danse.play(state_name)
-		elif state_name == "galloping":
-			la_horse_danse.play(state_name)
-		elif state_name == "falling":
-			la_horse_danse.play(state_name)
+		horsey_upgrades.state_changed = true
+		horsey_upgrades.animation_state = the_state_of_this_fucking_horse
+		#if state_name == "idle":
+		#	la_horse_danse.play(state_name)
+		#elif state_name == "trotting":
+		#	la_horse_danse.play(state_name)
+		#elif state_name == "galloping":
+		#	la_horse_danse.play(state_name)
+		#elif state_name == "falling":
+		#	la_horse_danse.play(state_name)
 func horse_fall():
 	#Solution 1 - Reparent and assign old world transforms
 	#if Input.is_action_just_pressed("Down") and !remove_from_rail:
@@ -147,14 +149,13 @@ func reset_speed(delta):
 			state_change("idle")
 			print(the_state_of_this_fucking_horse)
 		horse_ui.horsepower = horse_stats["speed"]
-
-#func loop_complete():
-#	horse_stats["loop counter"]+=1
-#	for stat in loop_stats:
-#		if loop_stats["off loop"]:
-#			continue
-#		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
-#		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
+func loop_complete():
+	horse_stats["loop counter"]+=1
+	for stat in loop_stats:
+		if loop_stats["off loop"]:
+			continue
+		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
+		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
 
 func horse_upgrade(): #incomplete
 	

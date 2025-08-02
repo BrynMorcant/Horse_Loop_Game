@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmthuxj7cxeg0"
-path="res://.godot/imported/neck.png-f426ce7b3cfee15d8da1545469c02afd.ctex"
+uid="uid://bkhy5abnhlboc"
+path="res://.godot/imported/greg.png-a2d4f0e825b8183282bc6b975928b9f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite Sheets/Horse Limbs/neck.png"
-dest_files=["res://.godot/imported/neck.png-f426ce7b3cfee15d8da1545469c02afd.ctex"]
+source_file="res://Sprites/greg.png"
+dest_files=["res://.godot/imported/greg.png-a2d4f0e825b8183282bc6b975928b9f0.ctex"]
 
 [params]
 
