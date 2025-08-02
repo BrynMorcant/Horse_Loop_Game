@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://do3pyn8mndanj" path="res://Sprite Sheets/Horse-Fan-Run.png" id="3_w7en7"]
 [ext_resource type="Texture2D" uid="uid://dm7aifnursyv1" path="res://Sprite Sheets/Horse Run.png" id="4_uk6gb"]
 [ext_resource type="Texture2D" uid="uid://dpacm52riaefa" path="res://Sprite Sheets/IdleFanStand.png" id="5_rqpqf"]
-[ext_resource type="Texture2D" uid="uid://jhoccvlb1y0y" path="res://Sprite Sheets/RollerSkate.png" id="6_vaqci"]
+[ext_resource type="Texture2D" uid="uid://jhoccvlb1y0y" path="res://Sprite Sheets/Horse-RollerSkate-Run.png" id="6_vaqci"]
 [ext_resource type="Texture2D" uid="uid://q2my4ufxiu4h" path="res://Sprite Sheets/RollerskateFanGallop.png" id="7_gef6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uaa7v"]

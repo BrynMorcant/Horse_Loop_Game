@@ -29,11 +29,15 @@ func loop_complete():
 	rail_control.loop_counter += 1
 	print("Next Loop")
 	print_loop_stats()
+	
 	for stat in rail_control.loop_stats:
+		if rail_control.loop_counter > 4:
+			break
 		if stat == "off loop":
 			print("skipping 'off loop'")
 			continue
 		print("updating: ", stat)
+		
 		rail_control.loop_stats[stat] = rail_control.loop_difficulty[rail_control.loop_counter][stat]
 	print_loop_stats()
 
