@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fdspmfck7718"]
 
-[ext_resource type="Script" uid="uid://cjeqwmytev133" path="res://Active Scenes/UI/menu_control.gd" id="1_w1lvd"]
+[ext_resource type="Script" uid="uid://cjeqwmytev133" path="res://Scripts/menu_control.gd" id="1_5wsvm"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w1lvd")
+script = ExtResource("1_5wsvm")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -36,6 +36,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Game"
 
+[node name="horse_looper_1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Horse Looper 1"
+
 [node name="credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -49,16 +54,11 @@ text = "quit"
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 414.0
-offset_top = 611.0
+offset_top = 594.0
 offset_right = 773.0
-offset_bottom = 642.0
-
-[node name="quit" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Horse Looper 1:"
+offset_bottom = 625.0
 
 [connection signal="pressed" from="VBoxContainer/game_start" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/horse_looper_1" to="." method="_on_horse_looper_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="VBoxContainer2/quit" to="." method="_on_quit_pressed"]

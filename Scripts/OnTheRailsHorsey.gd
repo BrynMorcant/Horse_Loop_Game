@@ -12,7 +12,7 @@ var remove_from_rail = false
 @export var horse_stats: Dictionary = {
 	"base speed": .0001,
 	"speed": .0001,
-	"acceleration": .0001,
+	"acceleration": .0005,
 	"max speed": .15,
 }
 @export var loop_stats: Dictionary = {
@@ -46,10 +46,8 @@ var remove_from_rail = false
 func _ready():
 	la_horse_danse = $Test_Horse/AnimatedSprite2D
 	state_change("idle")
+	the_state_of_this_fucking_horse = "idle"
 
-func _input(event: InputEvent) -> void: #During my looking around I learned you 
-	#can have functions that run on events like input.
-	pass
 func horse_fall():
 	#Solution 1 - Reparent and assign old world transforms
 	#if Input.is_action_just_pressed("Down") and !remove_from_rail:
