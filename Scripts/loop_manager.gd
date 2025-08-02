@@ -31,7 +31,7 @@ func loop_complete():
 	#print_loop_stats()
 	
 	for stat in rail_control.loop_stats:
-		if rail_control.loop_counter > 4:
+		if rail_control.loop_counter > 3:
 			break
 		if stat == "off loop":
 			print("skipping 'off loop'")

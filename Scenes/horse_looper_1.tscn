@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cgjk1rdi7ymon" path="res://Scripts/horse_looper_1.gd" id="1_wewy8"]
 [ext_resource type="Texture2D" uid="uid://bcmriogsmvqf3" path="res://Stages/Loop.png" id="1_xdg8x"]
-[ext_resource type="PackedScene" uid="uid://cekn5mlxq5csk" path="res://Scenes/horse.tscn" id="2_r2t01"]
+[ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Scenes/horse.tscn" id="2_r2t01"]
 
 [sub_resource type="Curve2D" id="Curve2D_wy2vh"]
 _data = {

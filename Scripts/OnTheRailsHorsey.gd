@@ -10,8 +10,8 @@ var remove_from_rail = false
 @export var loop_counter: int = 1
 @export var loop_position: String = "off loop"
 @export var horse_stats: Dictionary = {
-	"base speed": .0001,
-	"speed": .0001,
+	"base speed": .001,
+	"speed": .001,
 	"acceleration": .0005,
 	"max speed": .15,
 }
@@ -33,7 +33,7 @@ var remove_from_rail = false
 		"loop climb": .00002,
 		"loop ceiling": .00004,
 		"loop complete": -.00005,
-		"speed threshold": .095
+		"speed threshold": .08
 	},
 	4: {
 		"loop climb": .000005,
@@ -48,43 +48,11 @@ func _ready():
 	state_change("idle")
 	the_state_of_this_fucking_horse = "idle"
 
-func horse_fall():
-	#Solution 1 - Reparent and assign old world transforms
-	#if Input.is_action_just_pressed("Down") and !remove_from_rail:
-	#	var global_position = horse.global_position #preserve world position
-	#	var global_rotation = horse.global_rotation #and rotation
-	#	remove_child(horse)
-	#	new_parent.add_child(horse)
-	#	horse.global_position = global_position
-	#	horse.global_rotation = global_rotation
-	#	remove_from_rail=true
-	#	print(horse.get_parent())
-	
-	#Solution 2 - Replace with a clone
-	#var horse_transform = horse.global_transform
-	#var new_horse = horse.duplicate()
-	#new_parent.add_child(new_horse)
-	#new_horse.global_transform = horse_transform
-	#horse.queue_free()
-	
-	#Solution 3 - Hybrid, use clone to hide jitter (Prevents animation hijinks post-swap).
-	var horse_transform = horse.global_transform
-	var new_horse = horse.duplicate()
-	new_parent.add_child(new_horse)
-	new_horse.global_transform = horse_transform
-	remove_child(horse)
-	new_parent.add_child(horse)
-	horse.global_transform = horse_transform
-	remove_child(camera)
-	new_horse.queue_free()
-	horse.add_child(camera)
-	state_change("falling")
-	horse.falling = true
 func _process(delta):
 	if the_state_of_this_fucking_horse != "falling": #When Falling the horse should be free of player influence
-		if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
-			horse_fall()
-			print("Function Called")
+		#if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
+		#	horse_fall()
+		#	print("Function Called")
 		if loop_position == "off loop": #Standard run
 			if Input.is_action_pressed("Boost"):
 				horse_run(delta)
@@ -117,7 +85,38 @@ func state_change(state_name):
 			la_horse_danse.play(state_name)
 		elif state_name == "falling":
 			la_horse_danse.play(state_name)
-
+func horse_fall():
+	#Solution 1 - Reparent and assign old world transforms
+	#if Input.is_action_just_pressed("Down") and !remove_from_rail:
+	#	var global_position = horse.global_position #preserve world position
+	#	var global_rotation = horse.global_rotation #and rotation
+	#	remove_child(horse)
+	#	new_parent.add_child(horse)
+	#	horse.global_position = global_position
+	#	horse.global_rotation = global_rotation
+	#	remove_from_rail=true
+	#	print(horse.get_parent())
+	
+	#Solution 2 - Replace with a clone
+	#var horse_transform = horse.global_transform
+	#var new_horse = horse.duplicate()
+	#new_parent.add_child(new_horse)
+	#new_horse.global_transform = horse_transform
+	#horse.queue_free()
+	
+	#Solution 3 - Hybrid, use clone to hide jitter (Prevents animation hijinks post-swap).
+	var horse_transform = horse.global_transform
+	var new_horse = horse.duplicate()
+	new_parent.add_child(new_horse)
+	new_horse.global_transform = horse_transform
+	remove_child(horse)
+	new_parent.add_child(horse)
+	horse.global_transform = horse_transform
+	remove_child(camera)
+	new_horse.queue_free()
+	horse.add_child(camera)
+	state_change("falling")
+	horse.falling = true
 func horse_run(delta):
 	if horse_stats["speed"] < 0.015:
 		if the_state_of_this_fucking_horse != "trotting":
