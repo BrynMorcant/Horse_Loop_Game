@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcg47vxajgew"]
+[gd_scene load_steps=6 format=3 uid="uid://dcg47vxajgew"]
 
 [ext_resource type="Script" uid="uid://cgjk1rdi7ymon" path="res://Scripts/horse_looper_1.gd" id="1_wewy8"]
 [ext_resource type="Texture2D" uid="uid://bcmriogsmvqf3" path="res://Stages/Loop.png" id="1_xdg8x"]
-[ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Scenes/horse.tscn" id="2_r2t01"]
+[ext_resource type="PackedScene" uid="uid://dddatryad1yah" path="res://Scenes/horse_old.tscn" id="3_xdg8x"]
+[ext_resource type="Texture2D" uid="uid://bx430xwpv5wxg" path="res://Stages/LoopFloorground.png" id="4_6ivnt"]
 
 [sub_resource type="Curve2D" id="Curve2D_wy2vh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 305, 16, 0, 0, 0, 0, 426, 10, 0, 0, 0, 0, 535, 15, 0, 0, 0, 0, 637, 9, 0, 0, 0, 0, 693, 15, 0, 0, 0, 0, 759, 17, 0, 0, 0, 0, 907, 15, 0, 0, 0, 0, 948, 14, 0, 0, 0, 0, 974, 2, 0, 0, 0, 0, 990, -27, 0, 0, 0, 0, 1008, -62, 0, 0, 0, 0, 1017, -127, 0, 0, 0, 0, 1023, 16)
+"points": PackedVector2Array(0, 0, 0, 0, 305, 16, 0, 0, 0, 0, 426, 10, 0, 0, 0, 0, 535, 15, 0, 0, 0, 0, 637, 9, 0, 0, 0, 0, 693, 15, 0, 0, 0, 0, 759, 17, 0, 0, 0, 0, 907, 15, 0, 0, 0, 0, 948, 14, 0, 0, 0, 0, 972, -8, 0, 0, 0, 0, 982, -22, 0, 0, 0, 0, 984, -38, 0, 0, 0, 0, 987, -74, 0, 0, 0, 0, 990, -113, 0, 0, 0, 0, 991, -119, 0, 0, 0, 0, 994, -120, 0, 0, 0, 0, 998, -116, 0, 0, 0, 0, 1003, 15)
 }
-point_count = 13
+point_count = 17
 
 [node name="horse_looper_1" type="Node2D"]
 
@@ -24,16 +25,22 @@ position = Vector2(-694, 1929)
 curve = SubResource("Curve2D_wy2vh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1023, 16)
-rotation = 1.52886
-progress = 953.676
+position = Vector2(305, 16)
+rotation = -0.0495462
 script = ExtResource("1_wewy8")
 
-[node name="Test_Horse" parent="Path2D/PathFollow2D" instance=ExtResource("2_r2t01")]
+[node name="Test_Horse" parent="Path2D/PathFollow2D" instance=ExtResource("3_xdg8x")]
 script = null
 
 [node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D/Test_Horse"]
-position = Vector2(-0.374817, -9.9928)
+position = Vector2(-0.374817, -9.99255)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -524.0
+offset_top = 1695.0
+offset_right = 460.0
+offset_bottom = 2027.0
+texture = ExtResource("4_6ivnt")
