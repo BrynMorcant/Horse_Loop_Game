@@ -1,13 +1,21 @@
-[gd_scene load_steps=72 format=3 uid="uid://j11oaocpqpri"]
+[gd_scene load_steps=99 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
-[ext_resource type="Script" uid="uid://dsps16ywv0agy" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
+[ext_resource type="Script" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://c1ses12kfds5d" path="res://Sprite Sheets/Idle Stand.png" id="3_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://do3pyn8mndanj" path="res://Sprite Sheets/Horse-Fan-Run.png" id="3_w7en7"]
 [ext_resource type="Texture2D" uid="uid://dm7aifnursyv1" path="res://Sprite Sheets/Horse Run.png" id="4_uk6gb"]
 [ext_resource type="Texture2D" uid="uid://dpacm52riaefa" path="res://Sprite Sheets/IdleFanStand.png" id="5_rqpqf"]
 [ext_resource type="Texture2D" uid="uid://jhoccvlb1y0y" path="res://Sprite Sheets/Horse-RollerSkate-Run.png" id="6_vaqci"]
 [ext_resource type="Texture2D" uid="uid://q2my4ufxiu4h" path="res://Sprite Sheets/RollerskateFanGallop.png" id="7_gef6d"]
+[ext_resource type="AudioStream" uid="uid://3175y01a2xnf" path="res://Sounds/Horse/Hoof/GravelHoof1.ogg" id="9_b86sk"]
+[ext_resource type="AudioStream" uid="uid://d1ede58gh27bp" path="res://Sounds/Horse/Hoof/GravelHoof2.ogg" id="10_qgjxy"]
+[ext_resource type="AudioStream" uid="uid://cdsvr3rplpkyc" path="res://Sounds/Horse/Hoof/GravelHoof3.ogg" id="11_a1cjg"]
+[ext_resource type="AudioStream" uid="uid://dqjv27rr6ow0m" path="res://Sounds/Horse/Hoof/GravelHoof4.ogg" id="12_huv0o"]
+[ext_resource type="AudioStream" uid="uid://u8abd8gsfmdg" path="res://Sounds/Horse/Hoof/HardHoof1.ogg" id="13_vl3ax"]
+[ext_resource type="AudioStream" uid="uid://clvrf8k0mg2m" path="res://Sounds/Horse/Hoof/HardHoof2.ogg" id="14_ojqcr"]
+[ext_resource type="AudioStream" uid="uid://4bums1w526g8" path="res://Sounds/Horse/Hoof/HardHoof3.ogg" id="15_khh14"]
+[ext_resource type="AudioStream" uid="uid://c3utunb36beg3" path="res://Sounds/Horse/Hoof/HardHoof4.ogg" id="16_ruxqp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uaa7v"]
 
@@ -481,6 +489,110 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_y2ll5"]
+resource_name = "Gallop"
+
+[sub_resource type="Animation" id="Animation_xu0tp"]
+resource_name = "Trot"
+
+[sub_resource type="Animation" id="Animation_5iwny"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_ivq37"]
+resource_name = "FanIdle"
+
+[sub_resource type="Animation" id="Animation_hy73u"]
+resource_name = "FanTrot"
+
+[sub_resource type="Animation" id="Animation_irop5"]
+resource_name = "FanGallop"
+
+[sub_resource type="Animation" id="Animation_r3wp1"]
+resource_name = "RocketIdle"
+
+[sub_resource type="Animation" id="Animation_eo1wv"]
+resource_name = "Idle_Fan+Roller"
+
+[sub_resource type="Animation" id="Animation_b86sk"]
+resource_name = "Trot_Fan+Roller"
+
+[sub_resource type="Animation" id="Animation_qgjxy"]
+resource_name = "Trot_Roller"
+
+[sub_resource type="Animation" id="Animation_a1cjg"]
+resource_name = "Rocket_Gallop"
+
+[sub_resource type="Animation" id="Animation_huv0o"]
+resource_name = "Gallop_Fan+Roller"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"galloping_fan"]
+}
+
+[sub_resource type="Animation" id="Animation_vl3ax"]
+resource_name = "Idle_RollerBlade"
+
+[sub_resource type="Animation" id="Animation_ojqcr"]
+
+[sub_resource type="Animation" id="Animation_khh14"]
+
+[sub_resource type="Animation" id="Animation_ruxqp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"galloping_fan"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbits"]
+_data = {
+&"Fall": SubResource("Animation_khh14"),
+&"Gallop": SubResource("Animation_y2ll5"),
+&"Gallop_Fan": SubResource("Animation_irop5"),
+&"Gallop_Fan+Roller": SubResource("Animation_huv0o"),
+&"Gallop_Rocket": SubResource("Animation_a1cjg"),
+&"Gallop_Roller": SubResource("Animation_ojqcr"),
+&"Idle": SubResource("Animation_5iwny"),
+&"Idle_Fan": SubResource("Animation_ivq37"),
+&"Idle_Fan+Roller": SubResource("Animation_eo1wv"),
+&"Idle_Rocket": SubResource("Animation_r3wp1"),
+&"Idle_Roller": SubResource("Animation_vl3ax"),
+&"RESET": SubResource("Animation_ruxqp"),
+&"Trot": SubResource("Animation_xu0tp"),
+&"Trot_Fan": SubResource("Animation_hy73u"),
+&"Trot_Fan+Roller": SubResource("Animation_b86sk"),
+&"Trot_Roller": SubResource("Animation_qgjxy")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cbits"]
+streams_count = 4
+stream_0/stream = ExtResource("9_b86sk")
+stream_1/stream = ExtResource("10_qgjxy")
+stream_2/stream = ExtResource("11_a1cjg")
+stream_3/stream = ExtResource("12_huv0o")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5b70e"]
+streams_count = 4
+stream_0/stream = ExtResource("13_vl3ax")
+stream_1/stream = ExtResource("14_ojqcr")
+stream_2/stream = ExtResource("15_khh14")
+stream_3/stream = ExtResource("16_ruxqp")
+
 [node name="Test_Horse" type="CharacterBody2D"]
 floor_stop_on_slope = false
 script = ExtResource("1_uaa7v")
@@ -492,4 +604,18 @@ shape = SubResource("CircleShape2D_uaa7v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_wrjrx")
-animation = &"roller_skates_fan_galloping"
+animation = &"galloping_fan"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_cbits")
+}
+
+[node name="HoofGravel" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+stream = SubResource("AudioStreamRandomizer_cbits")
+bus = &"Hooves"
+
+[node name="HoofStone" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+stream = SubResource("AudioStreamRandomizer_5b70e")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
