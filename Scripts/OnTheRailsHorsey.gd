@@ -12,7 +12,7 @@ var remove_from_rail = false
 @export var horse_stats: Dictionary = {
 	"base speed": .0001,
 	"speed": .0001,
-	"acceleration": .0005,
+	"acceleration": .0001,
 	"max speed": .15,
 }
 @export var loop_stats: Dictionary = {
@@ -20,20 +20,20 @@ var remove_from_rail = false
 	"loop climb": .000005,#
 	"loop ceiling": .00001,#
 	"loop complete": -.000015,# to here - Decay rates for horse speed while traversing the loop
-	"speed threshold": .05  #Speed Threshold to stay on loop
+	"speed threshold": .02  #Speed Threshold to stay on loop
 }
 @export var loop_difficulty: Dictionary = {
 	2: {
 		"loop climb": .00001,
 		"loop ceiling": .00002,
 		"loop complete": -.00003,
-		"speed threshold": .075
+		"speed threshold": .05
 	},
 	3: {
 		"loop climb": .00002,
 		"loop ceiling": .00004,
 		"loop complete": -.00005,
-		"speed threshold": .1
+		"speed threshold": .095
 	},
 	4: {
 		"loop climb": .000005,
@@ -105,7 +105,8 @@ func _process(delta):
 				apply_loop_decay(loop_decay)
 			else:
 				reset_speed(delta)
-
+		else:
+			reset_speed(delta)
 func state_change(state_name):
 	if the_state_of_this_fucking_horse != "falling":
 		the_state_of_this_fucking_horse = state_name
@@ -120,7 +121,7 @@ func state_change(state_name):
 			la_horse_danse.play(state_name)
 
 func horse_run(delta):
-	if horse_stats["speed"] < 0.01:
+	if horse_stats["speed"] < 0.015:
 		if the_state_of_this_fucking_horse != "trotting":
 			state_change("trotting")
 			print(the_state_of_this_fucking_horse)
@@ -132,21 +133,19 @@ func horse_run(delta):
 	horse_ui.current_horsepower  = horse_stats["speed"]
 	horse_ui.horsepower = horse_stats["speed"]
 	#print("Horsepower = ", horse_ui.horsepower)
-
 func accelerate_horse():
 	if horse_stats["speed"] < horse_stats["max speed"]:
 		horse_stats["speed"] += horse_stats["acceleration"]
 	if horse_stats["speed"] > horse_stats["max speed"]:
 		horse_stats["speed"] = horse_stats ["max speed"]
 	horse_ui.horsepower = horse_stats["speed"]
-
 func apply_loop_decay(loop_decay):
 	horse_stats["speed"] -= loop_decay
 	horse_ui.horsepower = horse_stats["speed"]
 func reset_speed(delta):
 	if horse_stats["speed"] > horse_stats["base speed"]:
 		horse_run(delta)
-		horse_stats["speed"] -= horse_stats["acceleration"] * 3
+		horse_stats["speed"] -= horse_stats["acceleration"] * 2
 		if horse_stats["speed"] <= horse_stats["base speed"]:
 			state_change("idle")
 			print(the_state_of_this_fucking_horse)

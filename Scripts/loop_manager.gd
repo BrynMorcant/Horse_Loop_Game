@@ -28,7 +28,7 @@ func update_horse():
 func loop_complete():
 	rail_control.loop_counter += 1
 	print("Next Loop")
-	print_loop_stats()
+	#print_loop_stats()
 	
 	for stat in rail_control.loop_stats:
 		if rail_control.loop_counter > 4:
@@ -37,9 +37,10 @@ func loop_complete():
 			print("skipping 'off loop'")
 			continue
 		print("updating: ", stat)
-		
+		print("loop counter is: ", rail_control.loop_counter)
+		print("so new threshold is: ", rail_control.loop_difficulty[rail_control.loop_counter]["speed threshold"])
 		rail_control.loop_stats[stat] = rail_control.loop_difficulty[rail_control.loop_counter][stat]
-	print_loop_stats()
+	#print_loop_stats()
 
 func print_loop_stats():
 	for stat in rail_control.loop_stats:
