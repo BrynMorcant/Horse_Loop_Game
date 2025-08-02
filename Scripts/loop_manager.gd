@@ -28,11 +28,18 @@ func update_horse():
 func loop_complete():
 	rail_control.loop_counter += 1
 	print("Next Loop")
+	print_loop_stats()
 	for stat in rail_control.loop_stats:
-		if rail_control.loop_stats["off loop"]:
+		if stat == "off loop":
+			print("skipping 'off loop'")
 			continue
-		rail_control.loop_stats[stat] = rail_control.loop_difficulty[rail_control.loop_counter]["stat"]
-		print(rail_control.loop_difficulty[rail_control.horse_stats["loop Counter"]["stat"]])
+		print("updating: ", stat)
+		rail_control.loop_stats[stat] = rail_control.loop_difficulty[rail_control.loop_counter][stat]
+	print_loop_stats()
+
+func print_loop_stats():
+	for stat in rail_control.loop_stats:
+		print(stat, ", ", rail_control.loop_stats[stat])
 
 func _on_area_2d_body_entered(body: Node2D):
 	cycle_loop_state()

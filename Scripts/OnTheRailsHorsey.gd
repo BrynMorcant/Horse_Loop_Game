@@ -93,7 +93,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
 			horse_fall()
 			print("Function Called")
-		if loop_position == "off loop" && the_state_of_this_fucking_horse != "falling": #Standard run
+		if loop_position == "off loop": #Standard run
 			if Input.is_action_pressed("Boost"):
 				horse_run(delta)
 				accelerate_horse()
