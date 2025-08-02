@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://j11oaocpqpri"]
+[gd_scene load_steps=103 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
 [ext_resource type="Script" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://clvrf8k0mg2m" path="res://Sounds/Horse/Hoof/HardHoof2.ogg" id="14_ojqcr"]
 [ext_resource type="AudioStream" uid="uid://4bums1w526g8" path="res://Sounds/Horse/Hoof/HardHoof3.ogg" id="15_khh14"]
 [ext_resource type="AudioStream" uid="uid://c3utunb36beg3" path="res://Sounds/Horse/Hoof/HardHoof4.ogg" id="16_ruxqp"]
+[ext_resource type="AudioStream" uid="uid://djpc48icklsgv" path="res://Sounds/Horse/HorseGore/Gore Impact 1.ogg" id="17_huv0o"]
+[ext_resource type="AudioStream" uid="uid://dtjee2v8827qe" path="res://Sounds/Horse/HorseGore/Gore Impact 2.ogg" id="18_vl3ax"]
+[ext_resource type="AudioStream" uid="uid://dj3hw4i2vlbha" path="res://Sounds/Horse/HorseGore/Gore Impact 3.ogg" id="19_ojqcr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uaa7v"]
 
@@ -491,12 +494,138 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_y2ll5"]
 resource_name = "Gallop"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"galloping"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HoofGravel:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.266667, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HoofStone:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_xu0tp"]
 resource_name = "Trot"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"trotting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HoofStone:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HoofStone:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
 
 [sub_resource type="Animation" id="Animation_5iwny"]
 resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.5, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 4, 3, 4, 5, 6, 7, 8, 7, 5, 1, 0, 0]
+}
 
 [sub_resource type="Animation" id="Animation_ivq37"]
 resource_name = "FanIdle"
@@ -524,6 +653,9 @@ resource_name = "Rocket_Gallop"
 
 [sub_resource type="Animation" id="Animation_huv0o"]
 resource_name = "Gallop_Fan+Roller"
+length = 0.4
+loop_mode = 1
+step = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -534,7 +666,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"galloping_fan"]
+"values": [&"roller_skates_fan_galloping"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_vl3ax"]
@@ -557,6 +701,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"galloping_fan"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HoofGravel:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HoofStone:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HoofStone:pitch_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbits"]
@@ -587,11 +779,19 @@ stream_2/stream = ExtResource("11_a1cjg")
 stream_3/stream = ExtResource("12_huv0o")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5b70e"]
+random_pitch = 1.55
+random_volume_offset_db = 3.0
 streams_count = 4
 stream_0/stream = ExtResource("13_vl3ax")
 stream_1/stream = ExtResource("14_ojqcr")
 stream_2/stream = ExtResource("15_khh14")
 stream_3/stream = ExtResource("16_ruxqp")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khh14"]
+streams_count = 3
+stream_0/stream = ExtResource("17_huv0o")
+stream_1/stream = ExtResource("18_vl3ax")
+stream_2/stream = ExtResource("19_ojqcr")
 
 [node name="Test_Horse" type="CharacterBody2D"]
 floor_stop_on_slope = false
@@ -613,9 +813,10 @@ libraries = {
 
 [node name="HoofGravel" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_cbits")
-bus = &"Hooves"
 
 [node name="HoofStone" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_5b70e")
+volume_db = -6.0
 
 [node name="Death" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+stream = SubResource("AudioStreamRandomizer_khh14")
