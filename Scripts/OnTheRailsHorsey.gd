@@ -2,30 +2,27 @@ extends PathFollow2D
 
 var the_state_of_this_fucking_horse
 var la_horse_danse
-var gravity = 1.8
 
 var remove_from_rail = false
 @onready var horse: CharacterBody2D = $Test_Horse
 @onready var new_parent: Node2D = get_node("/root/Test Course")
-
-var horse_stats = {
+@onready var camera: Camera2D = $Camera2D
+@export var loop_counter: int = 1
+@export var loop_position: String = "off loop"
+@export var horse_stats: Dictionary = {
 	"base speed": .001,
 	"speed": .001,
-	"acceleration": .00005,
+	"acceleration": .1,
 	"max speed": .1,
-	"loop counter": 1,
-	"loop position": "off loop"
 }
-
-var loop_stats = {
+@export var loop_stats: Dictionary = {
 	"off loop": .0,#from here
 	"loop climb": .000005,#
 	"loop ceiling": .00001,#
 	"loop complete": -.000015,# to here - Decay rates for horse speed while traversing the loop
-	"speed threshold": .5 #Speed Threshold to stay on loop
+	"speed threshold": .05  #Speed Threshold to stay on loop
 }
-
-var loop_difficulty = {
+@export var loop_difficulty: Dictionary = {
 	1: {
 		"loop climb": .000005,
 		"loop ceiling": .00001,
@@ -55,15 +52,10 @@ var loop_difficulty = {
 func _ready():
 	la_horse_danse = $Test_Horse/AnimatedSprite2D
 	state_change("idle")
-	if new_parent == null:
-		print("Error: Could not find Test Course")
 
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void: #During my looking around I learned you 
+	#can have functions that run on events like input.
 	pass
-	
-	
-	
-	
 func horse_fall():
 	#Solution 1 - Reparent and assign old world transforms
 	#if Input.is_action_just_pressed("Down") and !remove_from_rail:
@@ -77,45 +69,48 @@ func horse_fall():
 	#	print(horse.get_parent())
 	
 	#Solution 2 - Replace with a clone
-	#var global_transform = horse.global_transform
+	#var horse_transform = horse.global_transform
 	#var new_horse = horse.duplicate()
 	#new_parent.add_child(new_horse)
-	#new_horse.global_transform = global_transform
+	#new_horse.global_transform = horse_transform
 	#horse.queue_free()
 	
 	#Solution 3 - Hybrid, use clone to hide jitter (Prevents animation hijinks post-swap).
-	var global_transform = horse.global_transform
+	var horse_transform = horse.global_transform
 	var new_horse = horse.duplicate()
 	new_parent.add_child(new_horse)
-	new_horse.global_transform = global_transform
+	new_horse.global_transform = horse_transform
 	remove_child(horse)
 	new_parent.add_child(horse)
-	horse.global_transform = global_transform
+	horse.global_transform = horse_transform
+	remove_child(camera)
 	new_horse.queue_free()
+	horse.add_child(camera)
+	state_change("falling")
+	horse.falling = true
 func _process(delta):
-	if Input.is_action_just_pressed("Down"):
-		horse_fall()
-		print("Function Called")
-	if horse_stats["loop position"] == "off loop" && the_state_of_this_fucking_horse != "falling":
-		if Input.is_action_pressed("Boost"):
-			horse_run(delta)
-			accelerate_horse()
-		else:
-			reset_speed(delta)
-	elif horse_stats["loop position"] != "off loop":
-		var loop_decay = loop_stats["loop position"]
-		if horse_stats["speed"] < loop_stats["speed threshold"]:
-			state_change("falling")
-			
-			#detatch from parent
-			#apply gravity
-		elif Input.is_action_pressed("Boost"):
-			horse_run(delta)
-			accelerate_horse()
-			apply_loop_decay(loop_decay)
-		else:
-			reset_speed(delta)
-	pass
+	if the_state_of_this_fucking_horse != "falling": #When Falling the horse should be free of player influence
+		if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
+			horse_fall()
+			print("Function Called")
+		if loop_position == "off loop" && the_state_of_this_fucking_horse != "falling": #Standard run
+			if Input.is_action_pressed("Boost"):
+				horse_run(delta)
+				accelerate_horse()
+			else:
+				reset_speed(delta)
+		elif loop_position != "off loop": #Running while on the loop
+			var loop_decay = loop_stats[loop_position] #Assign loop position flag to a variable 
+			if horse_stats["speed"] < loop_stats["speed threshold"]:
+				print(horse_stats["speed"]," ",loop_stats["speed threshold"])
+				horse_fall()
+				print("Not fast enough bucko!")
+			elif Input.is_action_pressed("Boost"):
+				horse_run(delta)
+				accelerate_horse()
+				apply_loop_decay(loop_decay)
+			else:
+				reset_speed(delta)
 
 func state_change(state_name):
 	if the_state_of_this_fucking_horse != "falling":
@@ -158,13 +153,13 @@ func reset_speed(delta):
 			state_change("idle")
 			print(the_state_of_this_fucking_horse)
 
-func loop_complete():
-	horse_stats["loop counter"]+=1
-	for stat in loop_stats:
-		if loop_stats["off loop"]:
-			continue
-		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
-		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
+#func loop_complete():
+#	horse_stats["loop counter"]+=1
+#	for stat in loop_stats:
+#		if loop_stats["off loop"]:
+#			continue
+#		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
+#		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
 
 func horse_upgrade(): #incomplete
 	
