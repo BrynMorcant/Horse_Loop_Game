@@ -96,10 +96,12 @@ func state_change(state_name):
 		if state_name == "victory":
 			the_state_of_this_fucking_horse = "victory"
 			beyblade = true
+			horsey_upgrades.animation_state = "falling"
+			horsey_upgrades.state_changed = true
 		else:
 			the_state_of_this_fucking_horse = state_name
-			horsey_upgrades.state_changed = true
 			horsey_upgrades.animation_state = the_state_of_this_fucking_horse
+			horsey_upgrades.state_changed = true
 			#if state_name == "idle":
 			#	la_horse_danse.play(state_name)
 			#elif state_name == "trotting":
@@ -177,17 +179,12 @@ func reset_speed(delta):
 			print(the_state_of_this_fucking_horse)
 		horse_ui.horsepower = horse_stats["speed"]
 func loop_complete():
-	horse_stats["loop counter"]+=1
+	horsey_upgrades.loop_complete+=1
 	for stat in loop_stats:
 		if loop_stats["off loop"]:
 			continue
 		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
 		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
-func horse_upgrade(): #incomplete
-	
-	#acceleration += .00001
-	#max_speed += .1
-	pass
 
 func _on_victory_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/horse_looper_1.tscn")
