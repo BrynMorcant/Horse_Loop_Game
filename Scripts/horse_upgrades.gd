@@ -74,7 +74,7 @@ func update_horse_animation():
 	pass
 
 func check_if_current(upgrade_name):
-	print("checking if current")
+	
 	var available = false
 	if upgrade_name == upgrade_state:
 		available = true
@@ -93,15 +93,17 @@ func check_if_previous(upgrade_name):
 	print("previous ", next_in_line)
 	return next_in_line
 func check_if_next(upgrade_name):
-	print("checking if next")
 	var upgrade = upgrade_name
+	print("are your: ", upgrade_state, " better than", upgrade,"?")
 	var newer_tech = false
-	if upgrade_name == "skates":
-		if upgrade_state == "rocket":
+	if upgrade_state == "rocket":
+		if upgrade == "skates" or upgrade == "fan":
+			print("they are")
 			newer_tech = true
-	if upgrade_name == "fan":
-		if upgrade_state == "skates" or upgrade_state == "rocket":
-			newer_tech == true
+	if upgrade_state == "skates":
+		if upgrade == "fan":
+			print("they are")
+			newer_tech = true
 	return newer_tech
 func upgrade_checks(upgrade_name, progress):
 	var upgrade = upgrade_name 
@@ -112,20 +114,23 @@ func upgrade_checks(upgrade_name, progress):
 	if current:
 		greg_chat.set_text("You 'avin a bubble m8? U just brought that.")
 	else:
-		var previous = check_if_previous(upgrade)
+		
 		var next = check_if_next(upgrade)
-		if !previous:
-			if next:
+		if next:
 				greg_chat.set_text("No refunds.")
-			else:
-				greg_chat.set_text("Bruvvaaa, don't try to look before you can leap.")
 		else:
-			if loops_complete < progcheck:
-				greg_chat.set_text("pfft, you aint even done enuff loops for that.")
+			var previous = check_if_previous(upgrade)
+			if !previous:
+				
+				greg_chat.set_text("Bruvvaaa, don't try to look before you can leap.")
 			else:
-				upgrade_state = upgrade
-				update_horse_animation()
-				print("You should have the new upgrade.")
+				if loops_complete < progcheck:
+					greg_chat.set_text("pfft, you aint even done enuff loops for that.")
+				else:
+					upgrade_state = upgrade
+					update_horse_animation()
+					greg_chat.set_text("Enjoy ur new upgrade 'orse.")
+					print("You should have the new upgrade.")
 
 func _on_fan_pressed() -> void:
 	upgrade_checks("fan", 1)
