@@ -220,6 +220,9 @@ I sell 'orse upgrades."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [connection signal="pressed" from="Halftime_Show/Victory" to="Path2D/PathFollow2D" method="_on_victory_pressed"]
 [connection signal="timeout" from="Victory_Timer" to="Path2D/PathFollow2D" method="_on_victory_timer_timeout"]
 [connection signal="timeout" from="Fail_Timer" to="Path2D/PathFollow2D" method="_on_fail_timer_timeout"]
