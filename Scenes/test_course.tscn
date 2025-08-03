@@ -210,9 +210,22 @@ texture_hover = ExtResource("12_qs6xs")
 texture_disabled = ExtResource("12_qs6xs")
 texture_focused = ExtResource("12_qs6xs")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Gregthemerchant"]
+offset_left = 73.3333
+offset_top = -70.6667
+offset_right = 237.333
+offset_bottom = 27.3333
+text = "'Ello, oim Greg
+I sell 'orse upgrades."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Halftime_Show/Victory" to="Path2D/PathFollow2D" method="_on_victory_pressed"]
 [connection signal="timeout" from="Victory_Timer" to="Path2D/PathFollow2D" method="_on_victory_timer_timeout"]
 [connection signal="timeout" from="Fail_Timer" to="Path2D/PathFollow2D" method="_on_fail_timer_timeout"]
+[connection signal="pressed" from="Gregthemerchant/fan" to="horse_upgrades" method="_on_fan_pressed"]
+[connection signal="pressed" from="Gregthemerchant/skates" to="horse_upgrades" method="_on_skates_pressed"]
+[connection signal="pressed" from="Gregthemerchant/rocket" to="horse_upgrades" method="_on_rocket_pressed"]
 
 [editable path="loop_manager"]
 [editable path="Path2D/PathFollow2D/Test_Horse"]
