@@ -5,9 +5,7 @@ extends Node2D
 @export var horse_animation: Node2D = null
 func _ready():
 	rail_control = get_node("/root/Test Course/Path2D/PathFollow2D")
-	if rail_control == null:
-		print("Dumb Dumb you did it wrong.")
-	horse_animation = get_node("root/Test Course/horse_upgrades")
+	horse_animation = get_node("%horse_upgrades")
 func cycle_loop_state():
 	if loop_state == "off loop":
 		loop_state = "loop climb"
