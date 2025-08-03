@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://fdspmfck7718"]
 
-[ext_resource type="Script" path="res://Scripts/menu_control.gd" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://cjeqwmytev133" path="res://Scripts/menu_control.gd" id="1_5wsvm"]
 [ext_resource type="AudioStream" uid="uid://c1leemy3urd4" path="res://Music/Mane theme.ogg" id="2_i2xx2"]
 
 [node name="Main Menu" type="Control"]
@@ -49,6 +49,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Start Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/VBoxContainer/game_start"]
 
 [node name="credits" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
