@@ -172,3 +172,7 @@ func horse_upgrade(): #incomplete
 	#acceleration += .00001
 	#max_speed += .1
 	pass
+
+
+func _on_victory_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/horse_looper_1.tscn")

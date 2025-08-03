@@ -109,18 +109,6 @@ offset_top = -117.54
 offset_right = -79.6721
 offset_bottom = -117.54
 
-[node name="Halftime_Show" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="horse_upgrades" type="Node2D" parent="Halftime_Show"]
-unique_name_in_owner = true
-position = Vector2(-486, 2027)
-rotation = -0.130827
-script = ExtResource("6_8nnxx")
-
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -786.0
 offset_top = -561.0
@@ -136,12 +124,34 @@ offset_right = 6714.0
 offset_bottom = 2411.0
 texture = ExtResource("7_crv7u")
 
+[node name="Halftime_Show" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="horse_upgrades" type="Node2D" parent="Halftime_Show"]
+unique_name_in_owner = true
+position = Vector2(-486, 2027)
+rotation = -0.130827
+script = ExtResource("6_8nnxx")
+
+[node name="Victory" type="Button" parent="Halftime_Show"]
+layout_mode = 0
+offset_left = 5140.0
+offset_top = -93.0
+offset_right = 5194.0
+offset_bottom = -62.0
+text = "Finish"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2854, 1958)
 
 [node name="WorldFloor" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1271, -166)
 shape = SubResource("WorldBoundaryShape2D_kbrw5")
+
+[connection signal="pressed" from="Halftime_Show/Victory" to="Path2D/PathFollow2D" method="_on_victory_pressed"]
 
 [editable path="loop_manager"]
 [editable path="Path2D/PathFollow2D/Test_Horse"]
