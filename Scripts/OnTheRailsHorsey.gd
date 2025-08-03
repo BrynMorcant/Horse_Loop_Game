@@ -42,15 +42,15 @@ var remove_from_rail = false
 		"speed threshold": .1
 	}
 }
+var beyblade = false
+var victory_speed = 4.0
 func _ready():
 	la_horse_danse = $Test_Horse/AnimatedSprite2D
 	la_horse_danse.play("idle")
 	the_state_of_this_fucking_horse = "idle"
 	horsey_upgrades = get_node("%horse_upgrades")
-	if horsey_upgrades == null:
-		print("You dumb dingus Dee")
 func _process(delta):
-	if the_state_of_this_fucking_horse != "falling": #When Falling the horse should be free of player influence
+	if the_state_of_this_fucking_horse != "falling" and progress_ratio < 1.0: #When Falling the horse should be free of player influence
 		#if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
 		#	horse_fall()
 		#	print("Function Called")
@@ -74,18 +74,24 @@ func _process(delta):
 				reset_speed(delta)
 		else:
 			reset_speed(delta)
+	elif the_state_of_this_fucking_horse == "victory":
+		rotation -= victory_speed * delta
 func state_change(state_name):
 	if the_state_of_this_fucking_horse != "falling":
-		the_state_of_this_fucking_horse = state_name
-		horsey_upgrades.state_changed = true
-		horsey_upgrades.animation_state = the_state_of_this_fucking_horse
-		#if state_name == "idle":
-		#	la_horse_danse.play(state_name)
-		#elif state_name == "trotting":
-		#	la_horse_danse.play(state_name)
-		#elif state_name == "galloping":
-		#	la_horse_danse.play(state_name)
-		#elif state_name == "falling":
+		if state_name == "victory":
+			the_state_of_this_fucking_horse = "victory"
+			beyblade = true
+		else:
+			the_state_of_this_fucking_horse = state_name
+			horsey_upgrades.state_changed = true
+			horsey_upgrades.animation_state = the_state_of_this_fucking_horse
+			#if state_name == "idle":
+			#	la_horse_danse.play(state_name)
+			#elif state_name == "trotting":
+			#	la_horse_danse.play(state_name)
+			#elif state_name == "galloping":
+			#	la_horse_danse.play(state_name)
+			#elif state_name == "falling":
 		#	la_horse_danse.play(state_name)
 func horse_fall():
 	#Solution 1 - Reparent and assign old world transforms
@@ -128,9 +134,13 @@ func horse_run(delta):
 		if the_state_of_this_fucking_horse != "galloping":
 			state_change("galloping")
 			print(the_state_of_this_fucking_horse)
-	progress_ratio += delta*horse_stats["speed"]
-	horse_ui.current_horsepower  = horse_stats["speed"]
-	horse_ui.horsepower = horse_stats["speed"]
+	if progress_ratio + delta * horse_stats["speed"] >= 1.0:
+		progress_ratio = 1.0
+		state_change("victory")
+	else:
+		progress_ratio += delta*horse_stats["speed"]
+		horse_ui.current_horsepower  = horse_stats["speed"]
+		horse_ui.horsepower = horse_stats["speed"]
 	#print("Horsepower = ", horse_ui.horsepower)
 func accelerate_horse():
 	if horse_stats["speed"] < horse_stats["max speed"]:
