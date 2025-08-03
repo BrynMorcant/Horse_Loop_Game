@@ -14,6 +14,7 @@ func _on_link_button_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	credits.visible = false
 	main_menu.visible = true
+	$HBopla
 	pass # Replace with function body.
 
 
