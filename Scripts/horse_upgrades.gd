@@ -45,7 +45,7 @@ var load_upgrade_animation = {
 func _ready():
 	horse = get_node("/root/Test Course/Path2D/PathFollow2D")
 	if horse == null:
-		print("you a dumb bitch")
+		print("be nicer to yourself brinley")
 	horse_animation = horse.la_horse_danse
 	horse_animation.play("Idle")
 

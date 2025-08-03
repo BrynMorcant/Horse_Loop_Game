@@ -64,9 +64,8 @@ text = "Quit"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_i2xx2")
-pitch_scale = 0.9
 autoplay = true
-attenuation = 1.36604
+panning_strength = 0.0
 bus = &"Music"
 parameters/looping = true
 
