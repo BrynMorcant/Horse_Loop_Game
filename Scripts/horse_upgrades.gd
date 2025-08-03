@@ -138,16 +138,18 @@ func upgrade_checks(upgrade_name, progress):
 					greg_chat.set_text("pfft, you aint even done enuff loops for that.")
 				else:
 					upgrade_state = upgrade
+					Global.upgrade_state = upgrade
 					update_horse_animation()
+					horse.horse_speed_change = true
 					greg_chat.set_text("Enjoy ur new upgrade 'orse.")
 					print("You should have the new upgrade.")
 
 func _on_fan_pressed() -> void:
-	upgrade_checks("fan", 1)
+	upgrade_checks("fan", 0)
 
 func _on_skates_pressed() -> void:
 	
-	upgrade_checks("skates", 2)
+	upgrade_checks("skates", 1)
 
 func _on_rocket_pressed() -> void:
-	upgrade_checks("rocket", 3)
+	upgrade_checks("rocket", 2)

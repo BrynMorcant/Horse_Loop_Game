@@ -9,13 +9,9 @@ var remove_from_rail = false
 @onready var new_parent: TextureRect = get_node("/root/Test Course/Background")
 @onready var camera: Camera2D = $Camera2D
 @export var loop_counter: int = 1
+@export var horse_speed_change: bool = false
 @export var loop_position: String = "off loop"
-@export var horse_stats: Dictionary = {
-	"base speed": .001,
-	"speed": .001,
-	"acceleration": .0001,
-	"max speed": .15,
-}
+@export var horse_stats: Dictionary
 @export var loop_stats: Dictionary = {
 	"off loop": .0,#from here
 	"loop climb": .000005,#
@@ -51,7 +47,7 @@ var victory_speed = 4.0
 func _ready():
 	#la_horse_danse = $Test_Horse/AnimatedSprite2D
 	#la_horse_danse.play("idle")
-	
+	set_horse_speed()
 	the_state_of_this_fucking_horse = "idle"
 	horsey_upgrades = get_node("%horse_upgrades")
 	animation_player = get_node("Test_Horse/AnimatedSprite2D/AnimationPlayer")
@@ -64,7 +60,42 @@ func _ready():
 	fail_timer = get_node("/root/Test Course/Fail_Timer")
 	victory_button = get_node("/root/Test Course/Halftime_Show/Victory")
 	victory_button.visible = false
+func set_horse_speed():
+	if Global.upgrade_state == "default":
+		horse_stats = {
+			"base speed": .001,
+			"speed": .001,
+			"acceleration": .0005,
+			"max speed": .0200075,
+		}
+		pass
+	elif Global.upgrade_state == "fan":
+		horse_stats = {
+			"base speed": .001,
+			"speed": .001,
+			"acceleration": .001,
+			"max speed": .035001,
+		}
+		pass
+	elif Global.upgrade_state == "skates":
+		horse_stats = {
+			"base speed": .001,
+			"speed": .001,
+			"acceleration": .005,
+			"max speed": .06003,
+		}
+		pass
+	elif Global.upgrade_state == "rocket":
+		horse_stats = {
+			"base speed": .001,
+			"speed": .001,
+			"acceleration": .01,
+			"max speed": .15,
+		}
 func _process(delta):
+	if horse_speed_change == true:
+		set_horse_speed()
+		horse_speed_change = false
 	if the_state_of_this_fucking_horse != "falling" and progress_ratio < 1.0: #When Falling the horse should be free of player influence
 		#if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
 		#	horse_fall()
