@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Mane theme.ogg-248434aec9f4d1f09916dfcd37ad09
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop=true
+loop_offset=0.0
+bpm=125.0
+beat_count=54
 bar_beats=4
