@@ -110,6 +110,7 @@ func upgrade_checks(upgrade_name, progress):
 				greg_chat.set_text("pfft, you aint even done enuff loops for that.")
 			else:
 				upgrade_state = upgrade
+				update_horse_animation()
 				print("You should have the new upgrade.")
 
 func _on_fan_pressed() -> void:
