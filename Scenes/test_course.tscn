@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4ves6wjgptxg"]
+[gd_scene load_steps=14 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://bmmsj3hfaho3o" path="res://Stages/BIGGER Loop.png" id="1_3iic1"]
 [ext_resource type="PackedScene" uid="uid://bmy88qlycu816" path="res://Scenes/loop_run_interface.tscn" id="2_0pg6a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://naboyrodc56e" path="res://Stages/BIGGER Loop foreground.png" id="6_qnpiy"]
 [ext_resource type="PackedScene" uid="uid://d2mby6wejupq3" path="res://Scenes/loop_manager.tscn" id="7_1yneb"]
 [ext_resource type="Texture2D" uid="uid://0x1iwark4dcb" path="res://Stages/BIGGER Loop Floorground.png" id="7_crv7u"]
+[ext_resource type="Texture2D" uid="uid://c8sdsdbyvxhe7" path="res://Sprites/gregthemerchant.png" id="9_gmh8d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvjws"]
 
@@ -117,24 +118,23 @@ offset_bottom = 2439.0
 texture = ExtResource("6_qnpiy")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
 offset_left = -786.0
 offset_top = -589.0
 offset_right = 6714.0
 offset_bottom = 2411.0
 texture = ExtResource("7_crv7u")
 
+[node name="horse_upgrades" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-486, 2027)
+rotation = -0.130827
+script = ExtResource("6_8nnxx")
+
 [node name="Halftime_Show" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="horse_upgrades" type="Node2D" parent="Halftime_Show"]
-unique_name_in_owner = true
-position = Vector2(-486, 2027)
-rotation = -0.130827
-script = ExtResource("6_8nnxx")
 
 [node name="Victory" type="Button" parent="Halftime_Show"]
 layout_mode = 0
@@ -151,7 +151,34 @@ position = Vector2(2854, 1958)
 position = Vector2(-1271, -166)
 shape = SubResource("WorldBoundaryShape2D_kbrw5")
 
+[node name="Victory_Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Fail_Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Gregthemerchant" type="Sprite2D" parent="."]
+position = Vector2(-604, 1953)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_gmh8d")
+
+[node name="fan" type="TextureButton" parent="Gregthemerchant"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="skates" type="TextureButton" parent="Gregthemerchant"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="rocket" type="TextureButton" parent="Gregthemerchant"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="Halftime_Show/Victory" to="Path2D/PathFollow2D" method="_on_victory_pressed"]
+[connection signal="timeout" from="Victory_Timer" to="Path2D/PathFollow2D" method="_on_victory_timer_timeout"]
+[connection signal="timeout" from="Fail_Timer" to="Path2D/PathFollow2D" method="_on_fail_timer_timeout"]
 
 [editable path="loop_manager"]
 [editable path="Path2D/PathFollow2D/Test_Horse"]

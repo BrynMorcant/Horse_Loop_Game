@@ -5,7 +5,7 @@ var the_state_of_this_fucking_horse = "idle"
 @export var horse_ui: Control 
 var remove_from_rail = false
 @onready var horse: CharacterBody2D = $Test_Horse
-@onready var new_parent: Node2D = get_node("/root/Test Course")
+@onready var new_parent: TextureRect = get_node("/root/Test Course/Background")
 @onready var camera: Camera2D = $Camera2D
 @export var loop_counter: int = 1
 @export var loop_position: String = "off loop"
@@ -42,6 +42,9 @@ var remove_from_rail = false
 		"speed threshold": .1
 	}
 }
+@export var victory_button: Button 
+var victory_timer
+var fail_timer
 var beyblade = false
 var victory_speed = 4.0
 func _ready():
@@ -49,6 +52,10 @@ func _ready():
 	la_horse_danse.play("idle")
 	the_state_of_this_fucking_horse = "idle"
 	horsey_upgrades = get_node("%horse_upgrades")
+	victory_timer = get_node("/root/Test Course/Victory_Timer")
+	fail_timer = get_node("/root/Test Course/Fail_Timer")
+	victory_button = get_node("/root/Test Course/Halftime_Show/Victory")
+	victory_button.visible = false
 func _process(delta):
 	if the_state_of_this_fucking_horse != "falling" and progress_ratio < 1.0: #When Falling the horse should be free of player influence
 		#if Input.is_action_just_pressed("Down"): #manual control to fall off of the loop for testing
@@ -125,6 +132,7 @@ func horse_fall():
 	horse.add_child(camera)
 	state_change("falling")
 	horse.falling = true
+	fail_timer.start()
 func horse_run(delta):
 	if horse_stats["speed"] < 0.015:
 		if the_state_of_this_fucking_horse != "trotting":
@@ -137,6 +145,7 @@ func horse_run(delta):
 	if progress_ratio + delta * horse_stats["speed"] >= 1.0:
 		progress_ratio = 1.0
 		state_change("victory")
+		victory_timer.start()
 	else:
 		progress_ratio += delta*horse_stats["speed"]
 		horse_ui.current_horsepower  = horse_stats["speed"]
@@ -176,3 +185,11 @@ func horse_upgrade(): #incomplete
 
 func _on_victory_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/horse_looper_1.tscn")
+
+
+func _on_victory_timer_timeout() -> void:
+	victory_button.visible = true
+
+
+func _on_fail_timer_timeout() -> void:
+	get_tree().reload_current_scene()
