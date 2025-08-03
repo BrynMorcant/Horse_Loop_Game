@@ -189,9 +189,9 @@ texture_disabled = ExtResource("10_cpp3a")
 texture_focused = ExtResource("10_cpp3a")
 
 [node name="skates" type="TextureButton" parent="Gregthemerchant"]
-offset_left = 24.0
+offset_left = -21.3333
 offset_top = 10.6667
-offset_right = 64.0
+offset_right = 18.6667
 offset_bottom = 50.6667
 texture_normal = ExtResource("11_b3eil")
 texture_pressed = ExtResource("11_b3eil")
@@ -200,9 +200,9 @@ texture_disabled = ExtResource("11_b3eil")
 texture_focused = ExtResource("11_b3eil")
 
 [node name="rocket" type="TextureButton" parent="Gregthemerchant"]
-offset_left = -17.3333
+offset_left = 14.6667
 offset_top = 6.66667
-offset_right = 22.6667
+offset_right = 54.6667
 offset_bottom = 46.6667
 texture_normal = ExtResource("12_qs6xs")
 texture_pressed = ExtResource("12_qs6xs")
