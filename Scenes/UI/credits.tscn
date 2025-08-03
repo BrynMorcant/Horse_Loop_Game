@@ -251,6 +251,7 @@ size_flags_vertical = 8
 text = "https://soundcloud.com/messedup-murphy"
 
 [node name="back_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 565.0
 offset_top = 585.0
 offset_right = 610.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcuoqwm0h4jt"
+path="res://.godot/imported/Big music Loop (no dynamics).ogg-8d86b5132e6e0d3f70bccee9f4b93739.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Big music Loop (no dynamics).ogg"
+dest_files=["res://.godot/imported/Big music Loop (no dynamics).ogg-8d86b5132e6e0d3f70bccee9f4b93739.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=125.0
+beat_count=0
+bar_beats=4
