@@ -1,6 +1,7 @@
 extends Node2D
 @export var horse: PathFollow2D
 @export var horse_animation: AnimatedSprite2D
+@export var new_horse_animation: AnimationPlayer
 @export var state_changed: bool = false
 @export var animation_state = "idle"
 var upgrade_state = "default"
@@ -46,8 +47,11 @@ func _ready():
 	horse = get_node("/root/Test Course/Path2D/PathFollow2D")
 	if horse == null:
 		print("you a dumb bitch")
-	horse_animation = horse.la_horse_danse
-	horse_animation.play("Idle")
+	#horse_animation = horse.la_horse_danse
+	#horse_animation.play("Idle")
+	new_horse_animation = horse.animation_player
+	animation_state = "idle"
+	update_horse_animation()
 
 func _process(delta):
 	if state_changed:
@@ -58,4 +62,13 @@ func update_horse_stats():
 	pass
 func update_horse_animation():
 	if animation_state != "falling":
-		horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
+		if animation_state == "trot":
+			if upgrade_state == "roller":
+				new_horse_animation.play("Gallop_Fan+Roller")
+			elif upgrade_state == "rocket":
+				new_horse_animation.play("Gallop_Rocket")
+		else:
+			#horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
+			new_horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
+	else:
+		new_horse_animation.play("Fall")
