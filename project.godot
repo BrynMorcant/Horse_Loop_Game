@@ -14,6 +14,10 @@ config/name="GMTK Game Jam 2025"
 run/main_scene="uid://dcg47vxajgew"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [dotnet]
 
 project/assembly_name="GMTK Game Jam 2025"
