@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf1iprn526ntd"]
+[gd_scene load_steps=4 format=3 uid="uid://cf1iprn526ntd"]
 
 [ext_resource type="Script" uid="uid://cjeqwmytev133" path="res://Scripts/menu_control.gd" id="1_h87vg"]
+[ext_resource type="AudioStream" uid="uid://bqj4islaoojb8" path="res://Sounds/UI/Mouse Click.ogg" id="2_lm48m"]
+[ext_resource type="AudioStream" uid="uid://7hg88igy815y" path="res://Sounds/UI/MouseHover.ogg" id="3_tdxk4"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -251,6 +253,7 @@ size_flags_vertical = 8
 text = "https://soundcloud.com/messedup-murphy"
 
 [node name="back_button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 565.0
 offset_top = 585.0
 offset_right = 610.0
@@ -258,4 +261,13 @@ offset_bottom = 616.0
 size_flags_horizontal = 4
 text = "Back"
 
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lm48m")
+volume_db = -6.5
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tdxk4")
+volume_db = -6.5
+
+[connection signal="mouse_entered" from="back_button" to="." method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

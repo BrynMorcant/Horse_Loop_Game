@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://fdspmfck7718"]
+[gd_scene load_steps=5 format=3 uid="uid://fdspmfck7718"]
 
 [ext_resource type="Script" uid="uid://cjeqwmytev133" path="res://Scripts/menu_control.gd" id="1_5wsvm"]
 [ext_resource type="AudioStream" uid="uid://c1leemy3urd4" path="res://Music/Mane theme.ogg" id="2_i2xx2"]
+[ext_resource type="AudioStream" uid="uid://bqj4islaoojb8" path="res://Sounds/UI/Mouse Click.ogg" id="2_o14dv"]
+[ext_resource type="AudioStream" uid="uid://7hg88igy815y" path="res://Sounds/UI/MouseHover.ogg" id="4_u7lva"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -50,8 +52,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Start Game"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/VBoxContainer/game_start"]
-
 [node name="credits" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -71,6 +71,17 @@ panning_strength = 0.0
 bus = &"Music"
 parameters/looping = true
 
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o14dv")
+volume_db = -6.5
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_u7lva")
+volume_db = -6.5
+
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/game_start" to="." method="_on_game_start_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/game_start" to="." method="_on_game_start_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
