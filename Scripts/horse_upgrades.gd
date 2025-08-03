@@ -34,7 +34,7 @@ var load_upgrade_animation = {
 		"trotting": "Trot_Fan",
 		"galloping": "Gallop_Fan",
 	},
-	"Fan+Roller": {
+	"skates": {
 		"idle": "Idle_Fan+Roller",
 		"trotting": "Trot_Fan+Roller",
 		"galloping": "Gallop_Fan+Roller",
