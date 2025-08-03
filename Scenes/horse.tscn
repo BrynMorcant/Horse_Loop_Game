@@ -1,7 +1,7 @@
 [gd_scene load_steps=261 format=3 uid="uid://j11oaocpqpri"]
 
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="1_5m35r"]
-[ext_resource type="Script" uid="uid://dsps16ywv0agy" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
+[ext_resource type="Script" path="res://Scripts/HorseGravity.gd" id="1_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://c1ses12kfds5d" path="res://Sprite Sheets/Idle Stand.png" id="3_uaa7v"]
 [ext_resource type="Texture2D" uid="uid://do3pyn8mndanj" path="res://Sprite Sheets/Horse-Fan-Run.png" id="3_w7en7"]
 [ext_resource type="Texture2D" uid="uid://dbpjmf44li1nq" path="res://Sprite Sheets/RollerskateFanGallop2.png" id="4_khh14"]
@@ -1512,7 +1512,7 @@ animations = [{
 }]
 
 [sub_resource type="Animation" id="Animation_khh14"]
-length = 6.5
+length = 6.261
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1533,10 +1533,10 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.73333, 1.83333, 1.93333, 2.03333, 2.13333, 2.23333, 2.33333, 2.43333, 2.53333, 2.73333, 2.825, 2.925, 3.1, 3.125, 3.225, 3.325, 3.425, 3.525, 3.65833, 3.79167, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.63333, 5.73333, 5.83333, 5.93333, 6.03333, 6.13333),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.73333, 1.83333, 1.93333, 2.03333, 2.13333, 2.23333, 2.33333, 2.43333, 2.53333, 2.73333, 2.825, 2.925, 3.1, 3.125, 3.225, 3.325, 3.425, 3.525, 3.65833, 3.79167, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.63333, 5.73333, 5.83333, 5.93333, 6.03333, 6.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 3, 4, 0, 1, 2, 1]
 }
 tracks/2/type = "audio"
 tracks/2/imported = false
@@ -1588,18 +1588,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Falling:volume_db")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.5, 5.23333, 5.76667),
-"transitions": PackedFloat32Array(0.203063, 1, 13.752, 1.8025),
-"update": 0,
-"values": [-80.0, 0.0, 0.0, -80.0]
 }
 
 [sub_resource type="Animation" id="Animation_y2ll5"]
@@ -2260,18 +2248,6 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Falling:volume_db")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_xu0tp"]
 resource_name = "Trot"
@@ -2519,3 +2495,4 @@ stream = SubResource("AudioStreamRandomizer_wfk3i")
 volume_db = -11.848
 
 [node name="Falling" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+volume_db = -10.0

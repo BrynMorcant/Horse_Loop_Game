@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4ves6wjgptxg"]
+[gd_scene load_steps=18 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://bmmsj3hfaho3o" path="res://Stages/BIGGER Loop.png" id="1_3iic1"]
 [ext_resource type="PackedScene" uid="uid://bmy88qlycu816" path="res://Scenes/loop_run_interface.tscn" id="2_0pg6a"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bhj4euygu7688" path="res://Sprites/fan_upgrade.png" id="10_cpp3a"]
 [ext_resource type="Texture2D" uid="uid://ivionw0t3up6" path="res://Sprites/skates_upgrade.png" id="11_b3eil"]
 [ext_resource type="Texture2D" uid="uid://dm46r55l2n8df" path="res://Sprites/rocket_upgrade.png" id="12_qs6xs"]
+[ext_resource type="AudioStream" uid="uid://dcuoqwm0h4jt" path="res://Music/Big music Loop (no dynamics).ogg" id="13_b3eil"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvjws"]
 
@@ -218,6 +219,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_b3eil")
 autoplay = true
 
 [connection signal="pressed" from="Halftime_Show/Victory" to="Path2D/PathFollow2D" method="_on_victory_pressed"]
