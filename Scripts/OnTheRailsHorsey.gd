@@ -2,6 +2,7 @@ extends PathFollow2D
 @export var horsey_upgrades: Node2D
 var the_state_of_this_fucking_horse = "idle"
 @export var la_horse_danse: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
 @export var horse_ui: Control 
 var remove_from_rail = false
 @onready var horse: CharacterBody2D = $Test_Horse
@@ -48,10 +49,17 @@ var fail_timer
 var beyblade = false
 var victory_speed = 4.0
 func _ready():
-	la_horse_danse = $Test_Horse/AnimatedSprite2D
-	la_horse_danse.play("idle")
+	#la_horse_danse = $Test_Horse/AnimatedSprite2D
+	#la_horse_danse.play("idle")
+	
 	the_state_of_this_fucking_horse = "idle"
 	horsey_upgrades = get_node("%horse_upgrades")
+	animation_player = get_node("Test_Horse/AnimatedSprite2D/AnimationPlayer")
+	if animation_player != null:
+		print("Animation player assigned")
+	animation_player.play("Idle")
+	state_change("idle")
+	print("I Should be idle right now.")
 	victory_timer = get_node("/root/Test Course/Victory_Timer")
 	fail_timer = get_node("/root/Test Course/Fail_Timer")
 	victory_button = get_node("/root/Test Course/Halftime_Show/Victory")
@@ -175,21 +183,15 @@ func loop_complete():
 			continue
 		loop_stats[stat] = loop_difficulty[horse_stats["loop counter"]["stat"]]
 		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
-
 func horse_upgrade(): #incomplete
 	
 	#acceleration += .00001
 	#max_speed += .1
 	pass
 
-
 func _on_victory_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/horse_looper_1.tscn")
-
-
 func _on_victory_timer_timeout() -> void:
 	victory_button.visible = true
-
-
 func _on_fail_timer_timeout() -> void:
 	get_tree().reload_current_scene()
