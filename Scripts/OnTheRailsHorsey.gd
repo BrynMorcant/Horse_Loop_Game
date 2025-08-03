@@ -143,6 +143,7 @@ func horse_fall():
 	state_change("falling")
 	horse.falling = true
 	fail_timer.start()
+	horsey_upgrades.backup = true
 func horse_run(delta):
 	if horse_stats["speed"] < 0.015:
 		if the_state_of_this_fucking_horse != "trotting":

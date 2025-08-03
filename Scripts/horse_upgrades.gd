@@ -7,6 +7,7 @@ extends Node2D
 @export var animation_state = "idle"
 var upgrade_state = "default"
 var upgraded = false
+@export var backup: bool = false
 @export var loops_complete:int = 0
 
 var load_upgrade_stats = {
@@ -46,6 +47,9 @@ var load_upgrade_animation = {
 	}
 }
 func _ready():
+	if Global.first_run == false:
+		upgrade_state = Global.upgrade_state
+		loops_complete = Global.loops_complete
 	horse = get_node("/root/Test Course/Path2D/PathFollow2D")
 	greg_chat = get_node("/root/Test Course/Gregthemerchant/RichTextLabel")
 	if greg_chat == null:
@@ -55,11 +59,14 @@ func _ready():
 	new_horse_animation = horse.animation_player
 	animation_state = "idle"
 	update_horse_animation()
-
+	Global.first_run = false
 func _process(delta):
 	if state_changed:
 		update_horse_animation()
 		state_changed = false
+	if backup:
+		data_backup()
+		backup = false
 
 func update_horse_animation():
 	if animation_state != "falling":
@@ -72,7 +79,10 @@ func update_horse_animation():
 	else:
 		new_horse_animation.play("Fall")
 	pass
-
+func data_backup():
+	Global.loops_complete = loops_complete
+	Global.upgrade_state = upgrade_state
+	pass
 func check_if_current(upgrade_name):
 	
 	var available = false
@@ -107,7 +117,7 @@ func check_if_next(upgrade_name):
 	return newer_tech
 func upgrade_checks(upgrade_name, progress):
 	var upgrade = upgrade_name 
-	var progcheck = loops_complete
+	var progcheck = progress
 	print("performing upgrade checks")
 	
 	var current = check_if_current(upgrade)
