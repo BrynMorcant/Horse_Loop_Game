@@ -47,6 +47,7 @@ func _ready():
 	if horse == null:
 		print("you a dumb bitch")
 	horse_animation = horse.la_horse_danse
+	horse_animation.play("Idle")
 
 func _process(delta):
 	if state_changed:
