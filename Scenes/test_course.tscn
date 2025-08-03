@@ -99,9 +99,6 @@ horse_ui = NodePath("Test_Horse/Camera2D/Loop_Run_Interface")
 volume_db = 0.0
 pitch_scale = 3.0
 
-[node name="FanLoop" parent="Path2D/PathFollow2D/Test_Horse/AnimatedSprite2D" index="6"]
-pitch_scale = 1.0
-
 [node name="RocketBurning" parent="Path2D/PathFollow2D/Test_Horse/AnimatedSprite2D" index="7"]
 pitch_scale = 2.0
 
@@ -215,7 +212,7 @@ offset_left = 73.3333
 offset_top = -70.6667
 offset_right = 237.333
 offset_bottom = 27.3333
-text = "'Ello, oim Greg
+text = "'Ello, oim Greg,
 I flog 'orse upgrades."
 horizontal_alignment = 1
 vertical_alignment = 1
