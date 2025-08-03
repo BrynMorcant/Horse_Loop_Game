@@ -88,23 +88,23 @@ func check_if_previous(upgrade_name):
 		"rocket":"skates"
 	}
 	var next_in_line = false
-	if quick_ref[upgrade_name] == upgrade_name:
+	if upgrade_state==quick_ref[upgrade_name]:
 		next_in_line = true
 	print("previous ", next_in_line)
 	return next_in_line
 
 func upgrade_checks(upgrade_name, progress):
 	var upgrade = upgrade_name 
-	var progcheck
+	var progcheck = loops_complete
 	print("performing upgrade checks")
 	
 	var current = check_if_current(upgrade)
 	if current:
-		greg_chat.set_text("You 'avin a bubble? U just brought that m8")
+		greg_chat.set_text("You 'avin a bubble m8? U just brought that.")
 	else:
 		var previous = check_if_previous(upgrade)
 		if !previous:
-			greg_chat.set_text("Bruvva, don't try to run before you can leap")
+			greg_chat.set_text("Bruvvaaa, don't try to look before you can leap.")
 		else:
 			if loops_complete < progcheck:
 				greg_chat.set_text("pfft, you aint even done enuff loops for that.")
