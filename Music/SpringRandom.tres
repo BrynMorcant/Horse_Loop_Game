@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=3 format=3 uid="uid://bevhf5hllwc1a"]
+
+[ext_resource type="AudioStream" uid="uid://dm6qdh5cj5djo" path="res://Music/LoopB_SpringThumps_125BPM.ogg" id="1_05exr"]
+[ext_resource type="AudioStream" uid="uid://blx8cfmpoqkrd" path="res://Music/LoopD_SpringThumps_125BPM.ogg" id="2_bsunb"]
+
+[resource]
+shuffle = true
+fade_time = 0.25
+stream_count = 2
+stream_0 = ExtResource("1_05exr")
+stream_1 = ExtResource("2_bsunb")

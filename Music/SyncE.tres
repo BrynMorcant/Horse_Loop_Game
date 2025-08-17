@@ -1,0 +1,7 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=2 format=3 uid="uid://bvaoimd8atqjy"]
+
+[ext_resource type="AudioStream" uid="uid://cidunc6rl6dop" path="res://Music/LoopE_HonkyTonk_125BPM.ogg" id="1_xfae7"]
+
+[resource]
+stream_count = 1
+stream_0 = ExtResource("1_xfae7")

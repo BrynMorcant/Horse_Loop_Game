@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://4ves6wjgptxg"]
+[gd_scene load_steps=22 format=3 uid="uid://4ves6wjgptxg"]
 
 [ext_resource type="Texture2D" uid="uid://bmmsj3hfaho3o" path="res://Stages/BIGGER Loop.png" id="1_3iic1"]
+[ext_resource type="Script" uid="uid://cfreqfyvo76su" path="res://Scenes/world_audio_manager.gd" id="1_bigmh"]
 [ext_resource type="PackedScene" uid="uid://bmy88qlycu816" path="res://Scenes/loop_run_interface.tscn" id="2_0pg6a"]
 [ext_resource type="Script" uid="uid://bluxohpwjajin" path="res://Scripts/OnTheRailsHorsey.gd" id="2_ryj1c"]
 [ext_resource type="PackedScene" uid="uid://j11oaocpqpri" path="res://Scenes/horse.tscn" id="4_gvjws"]
+[ext_resource type="AudioStream" uid="uid://c3vwdisle68nb" path="res://Music/LevelMusic.tres" id="4_qs6xs"]
 [ext_resource type="Script" uid="uid://clgg12en6h6ry" path="res://Scripts/horse_upgrades.gd" id="6_8nnxx"]
 [ext_resource type="Texture2D" uid="uid://naboyrodc56e" path="res://Stages/BIGGER Loop foreground.png" id="6_qnpiy"]
 [ext_resource type="PackedScene" uid="uid://d2mby6wejupq3" path="res://Scenes/loop_manager.tscn" id="7_1yneb"]
@@ -12,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bhj4euygu7688" path="res://Sprites/fan_upgrade.png" id="10_cpp3a"]
 [ext_resource type="Texture2D" uid="uid://ivionw0t3up6" path="res://Sprites/skates_upgrade.png" id="11_b3eil"]
 [ext_resource type="Texture2D" uid="uid://dm46r55l2n8df" path="res://Sprites/rocket_upgrade.png" id="12_qs6xs"]
-[ext_resource type="AudioStream" uid="uid://dcuoqwm0h4jt" path="res://Music/Big music Loop (no dynamics).ogg" id="13_b3eil"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvjws"]
 
@@ -27,7 +28,19 @@ point_count = 180
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kbrw5"]
 distance = -256.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bigmh"]
+size = Vector2(48, 22.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vob47"]
+size = Vector2(127.5, 122.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdfcg"]
+size = Vector2(60.2499, 83.5)
+
 [node name="Test Course" type="Node2D"]
+
+[node name="WorldAudioManager" type="Node" parent="."]
+script = ExtResource("1_bigmh")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_left = -786.0
@@ -36,9 +49,10 @@ offset_right = 5214.0
 offset_bottom = 2439.0
 texture = ExtResource("1_3iic1")
 
-[node name="loop_manager" parent="." instance=ExtResource("7_1yneb")]
+[node name="loop_manager" parent="." node_paths=PackedStringArray("bg_music_player") instance=ExtResource("7_1yneb")]
 position = Vector2(273, 2006)
 rotation = -0.0389413
+bg_music_player = NodePath("Synchronised Music")
 
 [node name="Area2D" parent="loop_manager" index="0"]
 collision_layer = 8
@@ -84,6 +98,12 @@ position = Vector2(2855.05, -639.333)
 rotation = 2.35619
 shape = SubResource("CapsuleShape2D_gvjws")
 
+[node name="Synchronised Music" type="AudioStreamPlayer" parent="loop_manager"]
+stream = ExtResource("4_qs6xs")
+autoplay = true
+max_polyphony = 10
+bus = &"Music"
+
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-654, 2005)
 curve = SubResource("Curve2D_7tol0")
@@ -95,6 +115,9 @@ script = ExtResource("2_ryj1c")
 horse_ui = NodePath("Test_Horse/Camera2D/Loop_Run_Interface")
 
 [node name="Test_Horse" parent="Path2D/PathFollow2D" instance=ExtResource("4_gvjws")]
+
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/Test_Horse" index="0"]
+light_mask = 2
 
 [node name="RocketLoopBase" parent="Path2D/PathFollow2D/Test_Horse/AnimatedSprite2D" index="4"]
 volume_db = 0.0
@@ -129,10 +152,10 @@ offset_bottom = 2439.0
 texture = ExtResource("6_qnpiy")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = -786.0
-offset_top = -589.0
-offset_right = 6714.0
-offset_bottom = 2411.0
+offset_left = -787.0
+offset_top = -579.0
+offset_right = 6713.0
+offset_bottom = 2421.0
 texture = ExtResource("7_crv7u")
 
 [node name="horse_upgrades" type="Node2D" parent="."]
@@ -157,6 +180,7 @@ text = "Finish"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2854, 1958)
+collision_layer = 3
 
 [node name="WorldFloor" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1271, -166)
@@ -169,6 +193,33 @@ one_shot = true
 [node name="Fail_Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="MusicTrigger1" type="Area2D" parent="."]
+position = Vector2(1501, 1971)
+
+[node name="Loop1Done" type="CollisionShape2D" parent="MusicTrigger1"]
+position = Vector2(-1359, 35.125)
+shape = SubResource("RectangleShape2D_bigmh")
+debug_color = Color(0.233595, 0.637772, 0, 1)
+
+[node name="MusicTrigger2" type="Area2D" parent="."]
+position = Vector2(1501, 1971)
+collision_layer = 2
+
+[node name="Loop2Done" type="CollisionShape2D" parent="MusicTrigger2"]
+position = Vector2(230, -20)
+shape = SubResource("RectangleShape2D_vob47")
+debug_color = Color(0, 1, 0.172549, 1)
+
+[node name="MusicTrigger3" type="Area2D" parent="."]
+position = Vector2(273, 2006)
+rotation = -0.0389413
+collision_layer = 2
+
+[node name="Loop3Done" type="CollisionShape2D" parent="MusicTrigger3"]
+position = Vector2(3724.16, 94.0584)
+rotation = 0.0389413
+shape = SubResource("RectangleShape2D_sdfcg")
 
 [node name="Gregthemerchant" type="Sprite2D" parent="."]
 position = Vector2(-604, 1953)
@@ -218,14 +269,12 @@ I flog 'orse upgrades."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_b3eil")
-volume_db = -3.0
-autoplay = true
-
 [connection signal="pressed" from="Halftime_Show/Victory" to="Path2D/PathFollow2D" method="_on_victory_pressed"]
 [connection signal="timeout" from="Victory_Timer" to="Path2D/PathFollow2D" method="_on_victory_timer_timeout"]
 [connection signal="timeout" from="Fail_Timer" to="Path2D/PathFollow2D" method="_on_fail_timer_timeout"]
+[connection signal="body_entered" from="MusicTrigger1" to="loop_manager" method="_on_music_trigger_1_body_entered"]
+[connection signal="body_entered" from="MusicTrigger2" to="loop_manager" method="_on_music_trigger_2_body_entered"]
+[connection signal="body_entered" from="MusicTrigger3" to="loop_manager" method="_on_music_trigger_3_body_entered"]
 [connection signal="pressed" from="Gregthemerchant/fan" to="horse_upgrades" method="_on_fan_pressed"]
 [connection signal="pressed" from="Gregthemerchant/skates" to="horse_upgrades" method="_on_skates_pressed"]
 [connection signal="pressed" from="Gregthemerchant/rocket" to="horse_upgrades" method="_on_rocket_pressed"]

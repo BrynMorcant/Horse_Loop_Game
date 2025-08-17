@@ -1,0 +1,48 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=14 format=3 uid="uid://fxgigvp66luo"]
+
+[ext_resource type="AudioStream" uid="uid://bmwlffodk0k5i" path="res://Music/BongosRandom.tres" id="1_7ufoo"]
+[ext_resource type="AudioStream" uid="uid://bsjf2m3ofpgsq" path="res://Music/FlutesRandom.tres" id="2_i33xg"]
+[ext_resource type="AudioStream" uid="uid://bd3sdvss60lib" path="res://Music/KickRandom.tres" id="3_75qp8"]
+[ext_resource type="AudioStream" uid="uid://uat2ngl6kjmk" path="res://Music/Success3.tres" id="4_75qp8"]
+[ext_resource type="AudioStream" uid="uid://biia8esco1ssu" path="res://Music/LoopB_Flutes_125BPM.ogg" id="4_i33xg"]
+[ext_resource type="AudioStream" uid="uid://cjjei5q8uv2ut" path="res://Music/LoopD_OrchestralStrings1_125BPM.ogg" id="4_rm7e4"]
+[ext_resource type="AudioStream" uid="uid://gdlrpmfcuqw1" path="res://Music/LoopD_OrchestralStrings2_125BPM.ogg" id="5_3plaa"]
+[ext_resource type="AudioStream" uid="uid://c7y3pcmog72oo" path="res://Music/LoopD_Shaker_125BPM.ogg" id="6_2wjhw"]
+[ext_resource type="AudioStream" uid="uid://co7fiwtt5ta1h" path="res://Music/LoopD_SpringSnare_125BPM.ogg" id="7_yeptv"]
+[ext_resource type="AudioStream" uid="uid://bevhf5hllwc1a" path="res://Music/SpringRandom.tres" id="8_rm7e4"]
+[ext_resource type="AudioStream" uid="uid://ctrkxu36hgqcq" path="res://Music/LoopD_Tamborine_125BPM.ogg" id="9_bqhpj"]
+[ext_resource type="AudioStream" uid="uid://4bsqml2xe1ki" path="res://Music/LoopD_Violin_125BPM.ogg" id="10_o3ukr"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_3plaa"]
+shuffle = true
+fade_time = 0.2
+stream_count = 2
+stream_0 = ExtResource("6_2wjhw")
+stream_1 = ExtResource("6_2wjhw")
+
+[resource]
+stream_count = 12
+stream_0/stream = ExtResource("1_7ufoo")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_i33xg")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_i33xg")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("3_75qp8")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("4_rm7e4")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("5_3plaa")
+stream_5/volume = 0.0
+stream_6/stream = SubResource("AudioStreamPlaylist_3plaa")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("7_yeptv")
+stream_7/volume = 0.0
+stream_8/stream = ExtResource("8_rm7e4")
+stream_8/volume = 0.0
+stream_9/stream = ExtResource("9_bqhpj")
+stream_9/volume = 0.0
+stream_10/stream = ExtResource("10_o3ukr")
+stream_10/volume = 0.0
+stream_11/stream = ExtResource("4_75qp8")
+stream_11/volume = 0.0

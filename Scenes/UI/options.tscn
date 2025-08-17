@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://byfru1selrq1j"]
+
+[node name="Options" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back_button" type="Button" parent="."]
+offset_left = 565.0
+offset_top = 585.0
+offset_right = 610.0
+offset_bottom = 616.0
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 404.0
+offset_top = 178.0
+offset_right = 772.0
+offset_bottom = 636.0
+tick_count = 10

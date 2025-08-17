@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=5 format=3 uid="uid://bd3sdvss60lib"]
+
+[ext_resource type="AudioStream" uid="uid://b0o5ipascsuov" path="res://Music/LoopA_Kick_125BPM.ogg" id="1_f55h6"]
+[ext_resource type="AudioStream" uid="uid://cim4ymnounlsb" path="res://Music/LoopB_Kick_125BPM.ogg" id="2_o0mm2"]
+[ext_resource type="AudioStream" uid="uid://b4a0tf3apni5g" path="res://Music/LoopC_Kick_125BPM.ogg" id="3_gkgda"]
+[ext_resource type="AudioStream" uid="uid://bnhmjthxxdqmm" path="res://Music/LoopD_Kick_125BPM.ogg" id="4_wftnk"]
+
+[resource]
+shuffle = true
+fade_time = 0.0
+stream_count = 4
+stream_0 = ExtResource("1_f55h6")
+stream_1 = ExtResource("2_o0mm2")
+stream_2 = ExtResource("3_gkgda")
+stream_3 = ExtResource("4_wftnk")

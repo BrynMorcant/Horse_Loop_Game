@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=2 format=3 uid="uid://dwly05f7hailj"]
+
+[ext_resource type="AudioStream" uid="uid://bi3b2hrgr1f0g" path="res://Music/Success1_125BPM.ogg" id="1_uksmn"]
+
+[resource]
+stream_count = 1
+stream_0/stream = ExtResource("1_uksmn")
+stream_0/volume = 0.0

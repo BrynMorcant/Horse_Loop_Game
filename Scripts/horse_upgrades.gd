@@ -131,18 +131,17 @@ func upgrade_checks(upgrade_name, progress):
 		else:
 			var previous = check_if_previous(upgrade)
 			if !previous:
-				
-				greg_chat.set_text("Bruvvaaa, don't try to look before you can leap.")
+				greg_chat.set_text("Bruv, you're lookin a gift you in the mouth. Do more loops")
 			else:
 				if loops_complete < progcheck:
-					greg_chat.set_text("pfft, you aint even done enuff loops for that.")
+					greg_chat.set_text("pfft, you 'avn't even done enough loops for that.")
 				else:
 					upgrade_state = upgrade
 					Global.upgrade_state = upgrade
 					update_horse_animation()
 					horse.horse_speed_change = true
-					greg_chat.set_text("Enjoy ur new upgrade 'orse.")
-					print("You should have the new upgrade.")
+					greg_chat.set_text("Enjoy your new upgrade 'orse.")
+					print("Should 'ave the new upgrade.")
 
 func _on_fan_pressed() -> void:
 	upgrade_checks("fan", 0)

@@ -22,11 +22,13 @@ func _ready():
 	state_change("galloping")
 	ui = get_node("/root/horse_looper_1/Main Menu")
 	ui2 = get_node("/root/horse_looper_1/Credits")
+	
 	if ui == null:
 		print("fucked it.")
 	else:
 		ui.visible = false
 		ui2.visible = false
+
 	timer = get_node("/root/horse_looper_1/MyTimer")
 func _process(delta):
 	horse_run(delta)

@@ -1,0 +1,32 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=10 format=3 uid="uid://cqudinmfd0idg"]
+
+[ext_resource type="AudioStream" uid="uid://0he1pjbk5qx" path="res://Music/LoopB_Bongos_125BPM.ogg" id="1_15obk"]
+[ext_resource type="AudioStream" uid="uid://biia8esco1ssu" path="res://Music/LoopB_Flutes_125BPM.ogg" id="2_q8td5"]
+[ext_resource type="AudioStream" uid="uid://cim4ymnounlsb" path="res://Music/LoopB_Kick_125BPM.ogg" id="3_jv258"]
+[ext_resource type="AudioStream" uid="uid://dv01y7b0v2uol" path="res://Music/LoopB_OrchestralStrings1_125BPM.ogg" id="4_dhl7b"]
+[ext_resource type="AudioStream" uid="uid://coef52qhgdp3u" path="res://Music/StringsRandom.tres" id="5_q8td5"]
+[ext_resource type="AudioStream" uid="uid://dm6qdh5cj5djo" path="res://Music/LoopB_SpringThumps_125BPM.ogg" id="6_waa7n"]
+[ext_resource type="AudioStream" uid="uid://jas0s5w600n2" path="res://Music/LoopB_Violin_125BPM.ogg" id="7_5wl05"]
+[ext_resource type="AudioStream" uid="uid://fqxjey2j8715" path="res://Music/TamborineRandom.tres" id="8_jv258"]
+[ext_resource type="AudioStream" uid="uid://dwly05f7hailj" path="res://Music/Success1.tres" id="9_jv258"]
+
+[resource]
+stream_count = 9
+stream_0/stream = ExtResource("1_15obk")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_q8td5")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_jv258")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("4_dhl7b")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("5_q8td5")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("6_waa7n")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("7_5wl05")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("8_jv258")
+stream_7/volume = 0.0
+stream_8/stream = ExtResource("9_jv258")
+stream_8/volume = 0.0

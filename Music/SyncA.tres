@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=5 format=3 uid="uid://g0ok2q4b6hdj"]
+
+[ext_resource type="AudioStream" uid="uid://b0o5ipascsuov" path="res://Music/LoopA_Kick_125BPM.ogg" id="1_js1ta"]
+[ext_resource type="AudioStream" uid="uid://dgvkw8lmmw0dc" path="res://Music/LoopA_OrchestralStrings1_125BPM.ogg" id="2_ag7dn"]
+[ext_resource type="AudioStream" uid="uid://bnexlcmtmrh7s" path="res://Music/LoopA_Shaker_125BPM.ogg" id="3_4cmox"]
+[ext_resource type="AudioStream" uid="uid://115tbjgw6bl0" path="res://Music/LoopA_Tamborine_125BPM.ogg" id="4_vue3a"]
+
+[resource]
+stream_count = 4
+stream_0/stream = ExtResource("1_js1ta")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_ag7dn")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_4cmox")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("4_vue3a")
+stream_3/volume = 0.0

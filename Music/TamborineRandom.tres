@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=4 format=3 uid="uid://fqxjey2j8715"]
+
+[ext_resource type="AudioStream" uid="uid://115tbjgw6bl0" path="res://Music/LoopA_Tamborine_125BPM.ogg" id="1_xpvlq"]
+[ext_resource type="AudioStream" uid="uid://dsws1o14kkgp5" path="res://Music/LoopC_Tamborine_125BPM.ogg" id="2_62x0t"]
+[ext_resource type="AudioStream" uid="uid://ctrkxu36hgqcq" path="res://Music/LoopD_Tamborine_125BPM.ogg" id="2_gcb7o"]
+
+[resource]
+shuffle = true
+fade_time = 0.0
+stream_count = 3
+stream_0 = ExtResource("1_xpvlq")
+stream_1 = ExtResource("2_62x0t")
+stream_2 = ExtResource("2_gcb7o")

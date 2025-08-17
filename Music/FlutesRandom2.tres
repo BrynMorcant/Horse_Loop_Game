@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=3 format=3 uid="uid://8dr40eecld0x"]
+
+[ext_resource type="AudioStream" uid="uid://b6cxehcn2kjrf" path="res://Music/LoopC_Flutes_125BPM.ogg" id="1_sooyf"]
+[ext_resource type="AudioStream" uid="uid://biia8esco1ssu" path="res://Music/LoopB_Flutes_125BPM.ogg" id="2_rhphx"]
+
+[resource]
+fade_time = 0.0
+stream_count = 2
+stream_0 = ExtResource("1_sooyf")
+stream_1 = ExtResource("2_rhphx")

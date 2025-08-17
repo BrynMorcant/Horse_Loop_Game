@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=3 format=3 uid="uid://coef52qhgdp3u"]
+
+[ext_resource type="AudioStream" uid="uid://c4poyd3c82hrp" path="res://Music/LoopB_OrchestralStrings2_125BPM.ogg" id="1_c5u0w"]
+[ext_resource type="AudioStream" uid="uid://bvcraosps2stj" path="res://Music/LoopC_OrchestralStrings2_125BPM.ogg" id="2_d01wb"]
+
+[resource]
+shuffle = true
+stream_count = 2
+stream_0 = ExtResource("1_c5u0w")
+stream_1 = ExtResource("2_d01wb")

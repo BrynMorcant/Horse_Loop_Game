@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=4 format=3 uid="uid://bmwlffodk0k5i"]
+
+[ext_resource type="AudioStream" uid="uid://0he1pjbk5qx" path="res://Music/LoopB_Bongos_125BPM.ogg" id="1_2br1l"]
+[ext_resource type="AudioStream" uid="uid://bq2gjaggyo7lh" path="res://Music/LoopC_Bongos_125BPM.ogg" id="2_xxlwl"]
+[ext_resource type="AudioStream" uid="uid://dqmt37pcmdj6" path="res://Music/LoopD_Bongos_125BPM.ogg" id="3_aq1ed"]
+
+[resource]
+shuffle = true
+fade_time = 0.0
+stream_count = 3
+stream_0 = ExtResource("1_2br1l")
+stream_1 = ExtResource("2_xxlwl")
+stream_2 = ExtResource("3_aq1ed")
