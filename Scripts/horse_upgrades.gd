@@ -5,10 +5,12 @@ extends Node2D
 @export var greg_chat: RichTextLabel
 @export var state_changed: bool = false
 @export var animation_state = "idle"
+@export var bg_music_player: AudioStreamPlayer
 var upgrade_state = "default"
 var upgraded = false
 @export var backup: bool = false
 @export var loops_complete:int = 0
+var current_loop: String
 
 var load_upgrade_stats = {
 	"fan":{
@@ -78,6 +80,8 @@ func update_horse_animation():
 			new_horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
 	else:
 		new_horse_animation.play("Fall")
+		current_loop = "LoopE"
+		bg_music_player["parameters/switch_to_clip"] =  current_loop
 	pass
 func data_backup():
 	Global.loops_complete = loops_complete

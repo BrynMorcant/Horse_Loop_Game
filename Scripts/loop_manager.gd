@@ -63,15 +63,12 @@ func _on_area_2d_body_entered(body: Node2D):
 func _on_music_trigger_1_body_entered(body: Node2D) -> void:
 	current_loop = "LoopB"
 	bg_music_player["parameters/switch_to_clip"] = current_loop
- #	$"Synchronised Music/Success Stinger1".play()
 	print ("LoopB")
 func _on_music_trigger_2_body_entered(body: Node2D) -> void:
 	current_loop = "LoopC"
 	bg_music_player["parameters/switch_to_clip"] =  current_loop
- #	$"Synchronised Music/Success Stinger2".play()
 	print ("LoopC")
 func _on_music_trigger_3_body_entered(body: Node2D) -> void:
 	current_loop = "LoopD"
- #	$"Synchronised Music/Success Stinger3".play()
 	bg_music_player["parameters/switch_to_clip"] =  current_loop
 	print ("LoopD")

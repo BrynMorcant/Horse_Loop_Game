@@ -158,11 +158,12 @@ offset_right = 6713.0
 offset_bottom = 2421.0
 texture = ExtResource("7_crv7u")
 
-[node name="horse_upgrades" type="Node2D" parent="."]
+[node name="horse_upgrades" type="Node2D" parent="." node_paths=PackedStringArray("bg_music_player")]
 unique_name_in_owner = true
 position = Vector2(-486, 2027)
 rotation = -0.130827
 script = ExtResource("6_8nnxx")
+bg_music_player = NodePath("../loop_manager/Synchronised Music")
 
 [node name="Halftime_Show" type="Control" parent="."]
 layout_mode = 3
