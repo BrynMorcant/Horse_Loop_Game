@@ -55,7 +55,7 @@ func _ready():
 	horse = get_node("/root/Test Course/Path2D/PathFollow2D")
 	greg_chat = get_node("/root/Test Course/Gregthemerchant/RichTextLabel")
 	if greg_chat == null:
-		print("you a dumb bitch")
+		print("Greg is mute")
 	#horse_animation = horse.la_horse_danse
 	#horse_animation.play("Idle")
 	new_horse_animation = horse.animation_player
