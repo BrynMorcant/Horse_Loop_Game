@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 Global="*res://Scripts/Global.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="GMTK Game Jam 2025"

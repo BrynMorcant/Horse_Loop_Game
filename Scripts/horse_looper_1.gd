@@ -2,6 +2,7 @@ extends PathFollow2D
 
 @onready var ui
 @onready var ui2
+@onready var ui3
 
 var the_state_of_this_fucking_horse
 var la_horse_danse
@@ -20,16 +21,18 @@ var timer
 func _ready():
 	la_horse_danse = $Test_Horse/AnimatedSprite2D1
 	state_change("galloping")
-	ui = get_node("/root/horse_looper_1/Main Menu")
-	ui2 = get_node("/root/horse_looper_1/Credits")
-	
+	ui = get_node("/root/Menu/Canvas/Main Menu")
+	ui2 = get_node("/root/Menu/Canvas/Credits")
+	ui3 = get_node("/root/Menu/Canvas/Options")
+ 
 	if ui == null:
-		print("fucked it.")
+		print("oops")
 	else:
 		ui.visible = false
 		ui2.visible = false
+		ui3.visible = false
 
-	timer = get_node("/root/horse_looper_1/MyTimer")
+	timer = get_node("/root/Menu/MyTimer")
 func _process(delta):
 	horse_run(delta)
 	accelerate_horse()

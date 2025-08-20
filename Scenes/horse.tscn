@@ -2525,11 +2525,13 @@ libraries = {
 
 [node name="HoofGravel" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_cbits")
+bus = &"Hooves"
 
 [node name="HoofStone" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_5b70e")
-volume_db = -9.467
+volume_db = -10.0
 max_polyphony = 4
+bus = &"Hooves"
 
 [node name="Death" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_khh14")
@@ -2538,10 +2540,12 @@ stream = SubResource("AudioStreamRandomizer_khh14")
 stream = SubResource("AudioStreamRandomizer_fq3uy")
 volume_db = -6.0
 pitch_scale = 2.0
+bus = &"Rocket"
 
 [node name="RocketLoopAirDistortion" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = ExtResource("26_p71pg")
 pitch_scale = 2.0
+bus = &"Rocket"
 parameters/looping = true
 
 [node name="FanLoop" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
@@ -2550,6 +2554,7 @@ pitch_scale = 0.25
 max_distance = 520.0
 attenuation = 2.92817
 panning_strength = 3.0
+bus = &"Fan"
 parameters/looping = true
 
 [node name="RocketBurning" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
@@ -2560,11 +2565,14 @@ stream = SubResource("AudioStreamRandomizer_4fk1c")
 volume_db = -8.0
 pitch_scale = 1.13
 max_polyphony = 50
+bus = &"Hooves"
 
 [node name="Tail" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 position = Vector2(0, 18)
 stream = SubResource("AudioStreamRandomizer_wfk3i")
 volume_db = -11.848
+bus = &"Horse Noises"
 
 [node name="Falling" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 volume_db = -5.0
+bus = &"Horse Noises"

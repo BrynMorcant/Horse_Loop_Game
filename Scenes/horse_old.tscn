@@ -1,6 +1,6 @@
 [gd_scene load_steps=72 format=3 uid="uid://dddatryad1yah"]
 
-[ext_resource type="Script" uid="uid://dsps16ywv0agy" path="res://Scripts/HorseGravity.gd" id="1_y5i21"]
+[ext_resource type="Script" path="res://Scripts/HorseGravity.gd" id="1_y5i21"]
 [ext_resource type="Texture2D" uid="uid://blknirf0br7hu" path="res://Sprite Sheets/Gallop.png" id="2_8pr1d"]
 [ext_resource type="Texture2D" uid="uid://do3pyn8mndanj" path="res://Sprite Sheets/Horse-Fan-Run.png" id="3_g7gdy"]
 [ext_resource type="Texture2D" uid="uid://c1ses12kfds5d" path="res://Sprite Sheets/Idle Stand.png" id="4_wp84e"]

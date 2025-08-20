@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmy88qlycu816"]
 
-[ext_resource type="Script" uid="uid://cokjxd6l2c61b" path="res://Scripts/Horse_UI.gd" id="1_sfkvi"]
+[ext_resource type="Script" path="res://Scripts/Horse_UI.gd" id="1_sfkvi"]
 
 [node name="Loop_Run_Interface" type="Control"]
 layout_mode = 3
