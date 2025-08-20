@@ -219,7 +219,7 @@ func loop_complete():
 		print(loop_difficulty[horse_stats["loop Counter"]["stat"]])
 
 func _on_victory_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/horse_looper_1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Main_Menu.tscn")
 func _on_victory_timer_timeout() -> void:
 	victory_button.visible = true
 func _on_fail_timer_timeout() -> void:
