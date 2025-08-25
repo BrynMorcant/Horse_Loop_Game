@@ -24,8 +24,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 256
-theme_override_constants/margin_top = 512
+theme_override_constants/margin_top = 640
 theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 128
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
 layout_mode = 2
@@ -39,6 +40,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 15
 columns = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/GridContainer"]

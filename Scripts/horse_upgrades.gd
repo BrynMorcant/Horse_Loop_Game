@@ -53,7 +53,7 @@ func _ready():
 		upgrade_state = Global.upgrade_state
 		loops_complete = Global.loops_complete
 	horse = get_node("/root/Test Course/Path2D/PathFollow2D")
-	greg_chat = get_node("/root/Test Course/Gregthemerchant/RichTextLabel")
+	greg_chat = get_node("/root/Test Course/GregsShop/RichTextLabel")
 	if greg_chat == null:
 		print("Greg is mute")
 	#horse_animation = horse.la_horse_danse

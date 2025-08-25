@@ -10,6 +10,12 @@ extends Control
 @onready var Click: AudioStreamPlayer = $Click
 @onready var Hover: AudioStreamPlayer = $Hover
 
+func _ready() -> void:
+	get_viewport().size = Vector2(960, 720)
+	main_menu = get_node("/root/Menu/Canvas/Main Menu")
+	credits = get_node("/root/Menu/Canvas/Credits")
+	options = get_node("/root/Menu/Canvas/Options")
+	
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(MusicBus, linear_to_db(value))
 	AudioServer.set_bus_mute(MusicBus, value < .05)
@@ -25,11 +31,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_sfx_slider_drag_started() -> void:
 	SFXSound.play()
 	
-func _ready() -> void:
-	main_menu = get_node("/root/Menu/Canvas/Main Menu")
-	credits = get_node("/root/Menu/Canvas/Credits")
-	options = get_node("/root/Menu/Canvas/Options")
-	
+
 func _on_link_button_pressed() -> void:
 	Click.play()
 	OS.shell_open("https://soundcloud.com/messedup-murphy")
