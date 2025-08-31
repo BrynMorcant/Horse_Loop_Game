@@ -183,7 +183,7 @@ func horse_run(delta):
 			print(the_state_of_this_fucking_horse)
 	else:
 		if the_state_of_this_fucking_horse != "galloping":
-			state_change("gallop")
+			state_change("galloping")
 			print(the_state_of_this_fucking_horse)
 	if progress_ratio + delta * horse_stats["speed"] >= 1.0:
 		progress_ratio = 1.0
