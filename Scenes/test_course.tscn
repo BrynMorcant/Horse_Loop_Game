@@ -1449,10 +1449,11 @@ offset_right = 6714.0
 offset_bottom = 2439.0
 texture = ExtResource("1_3iic1")
 
-[node name="loop_manager" parent="." node_paths=PackedStringArray("bg_music_player") instance=ExtResource("7_1yneb")]
+[node name="loop_manager" parent="." node_paths=PackedStringArray("bg_music_player", "horse_animation") instance=ExtResource("7_1yneb")]
 position = Vector2(273, 2006)
 rotation = -0.0389413
 bg_music_player = NodePath("Synchronised Music")
+horse_animation = NodePath("../Path2D/PathFollow2D/Test_Horse/AnimatedSprite2D")
 
 [node name="Area2D" parent="loop_manager" index="0"]
 collision_layer = 8
@@ -1569,11 +1570,7 @@ unique_name_in_owner = true
 position = Vector2(-486, 2027)
 rotation = -0.130827
 script = ExtResource("6_8nnxx")
-state_changed = null
-animation_state = null
 bg_music_player = NodePath("../loop_manager/Synchronised Music")
-backup = null
-loops_complete = null
 
 [node name="Halftime_Show" type="Control" parent="."]
 layout_mode = 3

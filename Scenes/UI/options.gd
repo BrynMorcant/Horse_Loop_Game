@@ -89,7 +89,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_sfx_slider_drag_started() -> void:
 	SFXSound.play()
 
-func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
+func _on_sfx_slider_drag_ended() -> void:
 	SFXSound.stop()
 	
 func _on_back_pressed() -> void:

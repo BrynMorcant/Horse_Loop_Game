@@ -46,8 +46,6 @@ var fail_timer
 var beyblade = false
 var victory_speed = 4.0
 func _ready():
-	#la_horse_danse = $Test_Horse/AnimatedSprite2D
-	#la_horse_danse.play("idle")
 	set_horse_speed()
 	the_state_of_this_fucking_horse = "idle"
 	horsey_upgrades = get_node("%horse_upgrades")

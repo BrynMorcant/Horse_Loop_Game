@@ -11,8 +11,11 @@ config_version=5
 [application]
 
 config/name="GMTK Game Jam 2025"
+config/description="Simply put, “Horse Looper 2: Equine Space Program” is a silly little game for the GMTK Game Jam 2025 about strapping increasingly questionable upgrades onto one very unwilling horse so it can complete a series of loops."
+config/version="1.7"
 run/main_scene="uid://dcg47vxajgew"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://bfxkj01ee3ffp"
 
 [autoload]
 
