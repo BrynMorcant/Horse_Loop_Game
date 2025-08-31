@@ -77,7 +77,7 @@ func update_horse_animation():
 				new_horse_animation.play("Gallop_Rocket")
 		else:
 			#horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
-				new_horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
+			new_horse_animation.play(load_upgrade_animation[upgrade_state][animation_state])
 	else:
 		new_horse_animation.play("Fall")
 		current_loop = "LoopE"
