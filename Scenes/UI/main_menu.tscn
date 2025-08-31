@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://fdspmfck7718"]
+[gd_scene load_steps=11 format=3 uid="uid://fdspmfck7718"]
 
 [ext_resource type="Script" uid="uid://cjeqwmytev133" path="res://Scripts/menu_control.gd" id="1_5wsvm"]
 [ext_resource type="AudioStream" uid="uid://c1leemy3urd4" path="res://Music/Mane theme.ogg" id="2_i2xx2"]
 [ext_resource type="AudioStream" uid="uid://bqj4islaoojb8" path="res://Sounds/UI/Mouse Click.ogg" id="2_o14dv"]
 [ext_resource type="AudioStream" uid="uid://7hg88igy815y" path="res://Sounds/UI/MouseHover.ogg" id="4_u7lva"]
+[ext_resource type="AudioStream" uid="uid://3175y01a2xnf" path="res://Sounds/Horse/Hoof/GravelHoof1.ogg" id="5_k33u3"]
+[ext_resource type="AudioStream" uid="uid://d1ede58gh27bp" path="res://Sounds/Horse/Hoof/GravelHoof2.ogg" id="6_lrjdf"]
+[ext_resource type="AudioStream" uid="uid://cdsvr3rplpkyc" path="res://Sounds/Horse/Hoof/GravelHoof3.ogg" id="7_wqme5"]
+[ext_resource type="AudioStream" uid="uid://dqjv27rr6ow0m" path="res://Sounds/Horse/Hoof/GravelHoof4.ogg" id="8_jewm6"]
+[ext_resource type="PackedScene" uid="uid://cf1iprn526ntd" path="res://Scenes/UI/credits.tscn" id="9_lrjdf"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_cejvf"]
+shuffle = true
+fade_time = 0.0
+stream_count = 4
+stream_0 = ExtResource("5_k33u3")
+stream_1 = ExtResource("6_lrjdf")
+stream_2 = ExtResource("7_wqme5")
+stream_3 = ExtResource("8_jewm6")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -15,6 +29,14 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_5wsvm")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -47,6 +69,8 @@ columns = 2
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.560784, 0.337255, 0.231373, 1)
+theme_override_font_sizes/normal_font_size = 32
 text = "Horse Looper 2:
 The Equine Space Program"
 horizontal_alignment = 1
@@ -55,11 +79,17 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
 
 [node name="game_start" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.819608, 0.831373, 0.713726, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.819608, 0.831373, 0.713726, 1)
+theme_override_colors/icon_hover_color = Color(0.560784, 0.337255, 0.231373, 1)
+theme_override_colors/icon_pressed_color = Color(0.737255, 0.784314, 0.8, 1)
+theme_override_colors/icon_normal_color = Color(0.4, 0.223529, 0.192157, 1)
 text = "Start Game"
 autowrap_mode = 3
 icon_alignment = 1
@@ -67,6 +97,11 @@ icon_alignment = 1
 [node name="options" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.819608, 0.831373, 0.713726, 1)
+theme_override_colors/icon_hover_color = Color(0.560784, 0.337255, 0.231373, 1)
+theme_override_colors/icon_pressed_color = Color(0.4, 0.223529, 0.192157, 1)
+theme_override_colors/icon_normal_color = Color(0.4, 0.223529, 0.192157, 1)
+theme_override_colors/font_pressed_color = Color(0.819608, 0.831373, 0.713726, 1)
 text = "Options"
 autowrap_mode = 3
 icon_alignment = 1
@@ -74,6 +109,14 @@ icon_alignment = 1
 [node name="credits" type="Button" parent="MarginContainer/VBoxContainer/GridContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0.359069, 0.359069, 0.359069, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.4, 0.223529, 0.192157, 1)
+theme_override_colors/font_hover_color = Color(0.819608, 0.831373, 0.713726, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.560784, 0.337255, 0.231373, 1)
+theme_override_colors/icon_hover_color = Color(0.560784, 0.337255, 0.231373, 1)
+theme_override_colors/icon_pressed_color = Color(0.560784, 0.337255, 0.231373, 1)
+theme_override_colors/icon_focus_color = Color(0.819608, 0.831373, 0.713726, 1)
+theme_override_colors/font_pressed_color = Color(0.737255, 0.784314, 0.8, 1)
 text = "Credits"
 autowrap_mode = 3
 icon_alignment = 1
@@ -84,12 +127,6 @@ size_flags_vertical = 3
 text = "Quit"
 autowrap_mode = 3
 icon_alignment = 1
-
-[node name="Background" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o14dv")
@@ -103,6 +140,16 @@ volume_db = -6.5
 stream = ExtResource("2_i2xx2")
 autoplay = true
 bus = &"Music"
+
+[node name="SFXSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_cejvf")
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="Credits" parent="." node_paths=PackedStringArray("credits") instance=ExtResource("9_lrjdf")]
+visible = false
+layout_mode = 1
+credits = NodePath(".")
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/VBoxContainer/game_start" to="." method="_on_game_start_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/VBoxContainer/game_start" to="." method="_on_game_start_pressed"]

@@ -7,7 +7,8 @@ var the_state_of_this_fucking_horse = "idle"
 var remove_from_rail = false
 @onready var horse: CharacterBody2D = $Test_Horse
 @onready var new_parent: TextureRect = get_node("/root/Test Course/Background")
-@onready var camera: Camera2D = $Camera2D
+@onready var camera: Camera2D = $Test_Horse/Camera2D
+
 @export var loop_counter: int = 1
 @export var horse_speed_change: bool = false
 @export var loop_position: String = "off loop"
@@ -182,7 +183,7 @@ func horse_run(delta):
 			print(the_state_of_this_fucking_horse)
 	else:
 		if the_state_of_this_fucking_horse != "galloping":
-			state_change("galloping")
+			state_change("gallop")
 			print(the_state_of_this_fucking_horse)
 	if progress_ratio + delta * horse_stats["speed"] >= 1.0:
 		progress_ratio = 1.0

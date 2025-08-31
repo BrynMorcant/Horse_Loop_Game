@@ -973,9 +973,9 @@ _data = {
 &"Trot_Fan": SubResource("Animation_hy73u")
 }
 
-[sub_resource type="Animation" id="Animation_kx2w1"]
-
 [sub_resource type="Animation" id="Animation_kr05o"]
+
+[sub_resource type="Animation" id="Animation_kx2w1"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_upy5w"]
 _data = {
@@ -1569,7 +1569,11 @@ unique_name_in_owner = true
 position = Vector2(-486, 2027)
 rotation = -0.130827
 script = ExtResource("6_8nnxx")
+state_changed = null
+animation_state = null
 bg_music_player = NodePath("../loop_manager/Synchronised Music")
+backup = null
+loops_complete = null
 
 [node name="Halftime_Show" type="Control" parent="."]
 layout_mode = 3

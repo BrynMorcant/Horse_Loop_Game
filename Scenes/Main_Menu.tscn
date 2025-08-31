@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcg47vxajgew"]
+[gd_scene load_steps=9 format=3 uid="uid://dcg47vxajgew"]
 
 [ext_resource type="Texture2D" uid="uid://bcmriogsmvqf3" path="res://Stages/Loop.png" id="1_vnflv"]
-[ext_resource type="Script" uid="uid://dl80uksy0rjlq" path="res://Scripts/Resolutions.gd" id="1_ymwpv"]
 [ext_resource type="Script" uid="uid://cgjk1rdi7ymon" path="res://Scripts/horse_looper_1.gd" id="2_ymwpv"]
 [ext_resource type="PackedScene" uid="uid://dddatryad1yah" path="res://Scenes/horse_old.tscn" id="3_1o627"]
 [ext_resource type="Texture2D" uid="uid://bx430xwpv5wxg" path="res://Stages/LoopFloorground.png" id="4_2ey7y"]
@@ -18,7 +17,6 @@ point_count = 17
 [node name="Menu" type="Node2D"]
 
 [node name="Canvas" type="CanvasLayer" parent="."]
-script = ExtResource("1_ymwpv")
 
 [node name="Options" parent="Canvas" instance=ExtResource("7_s2uu6")]
 size_flags_vertical = 6
@@ -52,7 +50,7 @@ script = null
 
 [node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D/Test_Horse"]
 position = Vector2(-0.5, -10)
-zoom = Vector2(16, 16)
+zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
